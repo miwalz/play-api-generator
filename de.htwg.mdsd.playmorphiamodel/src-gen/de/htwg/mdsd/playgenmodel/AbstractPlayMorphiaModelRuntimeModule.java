@@ -6,7 +6,7 @@ package de.htwg.mdsd.playgenmodel;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-import de.htwg.mdsd.playgenmodel.generator.PlayMorphiaModelGenerator;
+import de.htwg.mdsd.playgenmodel.generator.ModelGenerator;
 import de.htwg.mdsd.playgenmodel.parser.antlr.PlayMorphiaModelAntlrTokenFileProvider;
 import de.htwg.mdsd.playgenmodel.parser.antlr.PlayMorphiaModelParser;
 import de.htwg.mdsd.playgenmodel.parser.antlr.internal.InternalPlayMorphiaModelLexer;
@@ -188,7 +188,7 @@ public abstract class AbstractPlayMorphiaModelRuntimeModule extends DefaultRunti
 	
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
-		return PlayMorphiaModelGenerator.class;
+		return ModelGenerator.class;
 	}
 	
 }

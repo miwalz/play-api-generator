@@ -11,6 +11,8 @@ import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel
 import com.google.inject.Inject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute
+import java.util.Collection
+import java.util.HashSet
 
 /**
  * Generates code from your model files on save.
@@ -38,25 +40,41 @@ class PlayMorphiaModelGenerator extends AbstractGenerator {
 		@Entity("«model.name.toFirstLower»")
 		public class «model.name» extends BasicModel {
 			«FOR attribute : model.attributes»
-                «attribute.compileModel»
-            «ENDFOR»
+			«attribute.compileAttribute»
+			«ENDFOR»
 		}
 	'''
-	
-    def compileModel(Attribute atrribute) '''
-    
-        private «atrribute.type.fullyQualifiedName» «atrribute.name»;
-        
-        public «atrribute.type.fullyQualifiedName» get«atrribute.name.toFirstUpper»() {
-            return «atrribute.name»;
-        }
-        
-        public void set«atrribute.name.toFirstUpper»(«atrribute.type.fullyQualifiedName» «atrribute.name») {
-            this.«atrribute.name» = «atrribute.name»;
-        }
-    '''
-    
-    def compileDao(MorphiaModel model) '''
+
+	def compileAttribute(Attribute attribute) '''
+		
+			«IF attribute.type instanceof MorphiaModel»
+				@TODO: Morphia Annotations
+				«ENDIF»
+				«IF attribute.many»
+					private List<«attribute.type.fullyQualifiedName»> «attribute.name» = new ArrayList<«attribute.type.fullyQualifiedName»>();
+					
+					public List<«attribute.type.fullyQualifiedName»> get«attribute.name.toFirstUpper»() {
+						return this.«attribute.name»;
+					}
+					
+					public void set«attribute.name.toFirstUpper»(List<«attribute.type.fullyQualifiedName»> «attribute.name») {
+						this.«attribute.name» = posts;
+					}
+				«ENDIF»
+				«IF !attribute.many»
+					private «attribute.type.fullyQualifiedName» «attribute.name»;
+					
+					public «attribute.type.fullyQualifiedName» get«attribute.name.toFirstUpper»() {
+					    return this.«attribute.name»;
+					}
+					
+					public void set«attribute.name.toFirstUpper»(«attribute.type.fullyQualifiedName» «attribute.name») {
+					    this.«attribute.name» = «attribute.name»;
+					}
+				«ENDIF»
+		'''
+
+	def compileDao(MorphiaModel model) '''
 		package genapi.dao;
 		
 		import genapi.model.«model.name»;
@@ -64,7 +82,7 @@ class PlayMorphiaModelGenerator extends AbstractGenerator {
 		
 		public class «model.name»Dao extends BasicDao<«model.name», String> {}
 	'''
-	
+
 	def compileController(MorphiaModel model) '''
 		package genapi.controller;
 		
@@ -83,9 +101,10 @@ class PlayMorphiaModelGenerator extends AbstractGenerator {
 			
 			@Inject
 			FormFactory formFactory;
-		
+			
 			@Inject
 			private «model.name»Dao «model.name.toFirstLower»Dao;
+			«model.filterDaoInjects»
 			
 			public Result create«model.name»() {
 				final «model.name» «model.name.toFirstLower» = formFactory.form(«model.name».class).bindFromRequest().get();
@@ -118,6 +137,45 @@ class PlayMorphiaModelGenerator extends AbstractGenerator {
 				«model.name.toFirstLower»Dao.deleteById(id);
 				return ok(Json.toJson(id));
 			}
+			
+			«FOR attribute : model.attributes»
+				«IF attribute.type instanceof MorphiaModel»
+					«IF attribute.many»
+						public Result addTo«attribute.name.toFirstUpper»(String «model.name.toFirstLower»Id, String «attribute.name»Id) {
+							final «attribute.type.fullyQualifiedName» entityToAdd = «attribute.type.name.toFirstLower»Dao.get(«attribute.name»Id);
+							final Query<«model.fullyQualifiedName»> query = DBWrapper.datastore.createQuery(«model.fullyQualifiedName».class).filter("_id ==", «model.name.toFirstLower»Id);
+							final UpdateOperations<«model.fullyQualifiedName»> operations = DBWrapper.datastore.createUpdateOperations(«model.fullyQualifiedName».class).add("«attribute.name»", entityToAdd);
+							DBWrapper.datastore.update(query, operations);
+							return ok(Json.toJson(entityToAdd));
+						}
+						
+						public Result removeFrom«attribute.name.toFirstUpper»(String «model.name.toFirstLower», String «attribute.name»Id) {
+							final «attribute.type.fullyQualifiedName» entityToRemove = «attribute.type.name.toFirstLower»Dao.get(«attribute.name»Id);
+							final Query<«model.fullyQualifiedName»> query = DBWrapper.datastore.createQuery(«model.fullyQualifiedName».class).filter("_id ==", «model.name.toFirstLower»Id);
+							final UpdateOperations<«model.fullyQualifiedName»> operations = DBWrapper.datastore.createUpdateOperations(«model.fullyQualifiedName».class).removeAll("«attribute.name»", entityToRemove);
+							DBWrapper.datastore.update(query, operations);
+							return ok(Json.toJson(«attribute.name»Id));
+						}
+					«ENDIF»
+				«ENDIF»
+			«ENDFOR»
+			
 		}
+	'''
+	
+	def filterDaoInjects(MorphiaModel model) {
+		val daosToInject = newHashSet()
+		for(Attribute attribute : model.attributes.filter[it.type instanceof MorphiaModel && it.many]) {
+			daosToInject.add(attribute.type.name)
+		}
+		compileDaoInjects(daosToInject)
+	}
+	
+	def compileDaoInjects(HashSet<String> names) '''
+		«FOR name : names»
+		
+			@Inject 
+			private «name»Dao «name.toFirstLower»Dao;
+		«ENDFOR»
 	'''
 }

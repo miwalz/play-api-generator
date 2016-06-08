@@ -8,6 +8,7 @@ import com.google.inject.Inject;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Type;
+import java.util.HashSet;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -18,7 +19,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
@@ -83,8 +87,9 @@ public class PlayMorphiaModelGenerator extends AbstractGenerator {
     {
       EList<Attribute> _attributes = model.getAttributes();
       for(final Attribute attribute : _attributes) {
-        CharSequence _compileModel = this.compileModel(attribute);
-        _builder.append(_compileModel, "");
+        _builder.append("\t");
+        CharSequence _compileAttribute = this.compileAttribute(attribute);
+        _builder.append(_compileAttribute, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -93,69 +98,153 @@ public class PlayMorphiaModelGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compileModel(final Attribute atrribute) {
+  public CharSequence compileAttribute(final Attribute attribute) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.newLine();
-    _builder.append("    ");
-    _builder.append("private ");
-    Type _type = atrribute.getType();
-    QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(_type);
-    _builder.append(_fullyQualifiedName, "    ");
-    _builder.append(" ");
-    String _name = atrribute.getName();
-    _builder.append(_name, "    ");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("public ");
-    Type _type_1 = atrribute.getType();
-    QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_1);
-    _builder.append(_fullyQualifiedName_1, "    ");
-    _builder.append(" get");
-    String _name_1 = atrribute.getName();
-    String _firstUpper = StringExtensions.toFirstUpper(_name_1);
-    _builder.append(_firstUpper, "    ");
-    _builder.append("() {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("return ");
-    String _name_2 = atrribute.getName();
-    _builder.append(_name_2, "        ");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.newLine();
-    _builder.append("    ");
-    _builder.append("public void set");
-    String _name_3 = atrribute.getName();
-    String _firstUpper_1 = StringExtensions.toFirstUpper(_name_3);
-    _builder.append(_firstUpper_1, "    ");
-    _builder.append("(");
-    Type _type_2 = atrribute.getType();
-    QualifiedName _fullyQualifiedName_2 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_2);
-    _builder.append(_fullyQualifiedName_2, "    ");
-    _builder.append(" ");
-    String _name_4 = atrribute.getName();
-    _builder.append(_name_4, "    ");
-    _builder.append(") {");
-    _builder.newLineIfNotEmpty();
-    _builder.append("        ");
-    _builder.append("this.");
-    String _name_5 = atrribute.getName();
-    _builder.append(_name_5, "        ");
-    _builder.append(" = ");
-    String _name_6 = atrribute.getName();
-    _builder.append(_name_6, "        ");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("    ");
-    _builder.append("}");
-    _builder.newLine();
+    {
+      Type _type = attribute.getType();
+      if ((_type instanceof MorphiaModel)) {
+        _builder.append("\t");
+        _builder.append("@TODO: Morphia Annotations");
+        _builder.newLine();
+      }
+    }
+    {
+      boolean _isMany = attribute.isMany();
+      if (_isMany) {
+        _builder.append("\t\t");
+        _builder.append("private List<");
+        Type _type_1 = attribute.getType();
+        QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(_type_1);
+        _builder.append(_fullyQualifiedName, "\t\t");
+        _builder.append("> ");
+        String _name = attribute.getName();
+        _builder.append(_name, "\t\t");
+        _builder.append(" = new ArrayList<");
+        Type _type_2 = attribute.getType();
+        QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_2);
+        _builder.append(_fullyQualifiedName_1, "\t\t");
+        _builder.append(">();");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("public List<");
+        Type _type_3 = attribute.getType();
+        QualifiedName _fullyQualifiedName_2 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_3);
+        _builder.append(_fullyQualifiedName_2, "\t\t");
+        _builder.append("> get");
+        String _name_1 = attribute.getName();
+        String _firstUpper = StringExtensions.toFirstUpper(_name_1);
+        _builder.append(_firstUpper, "\t\t");
+        _builder.append("() {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("return this.");
+        String _name_2 = attribute.getName();
+        _builder.append(_name_2, "\t\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("public void set");
+        String _name_3 = attribute.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_3);
+        _builder.append(_firstUpper_1, "\t\t");
+        _builder.append("(List<");
+        Type _type_4 = attribute.getType();
+        QualifiedName _fullyQualifiedName_3 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_4);
+        _builder.append(_fullyQualifiedName_3, "\t\t");
+        _builder.append("> ");
+        String _name_4 = attribute.getName();
+        _builder.append(_name_4, "\t\t");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("this.");
+        String _name_5 = attribute.getName();
+        _builder.append(_name_5, "\t\t\t");
+        _builder.append(" = posts;");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
+    {
+      boolean _isMany_1 = attribute.isMany();
+      boolean _not = (!_isMany_1);
+      if (_not) {
+        _builder.append("\t\t");
+        _builder.append("private ");
+        Type _type_5 = attribute.getType();
+        QualifiedName _fullyQualifiedName_4 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_5);
+        _builder.append(_fullyQualifiedName_4, "\t\t");
+        _builder.append(" ");
+        String _name_6 = attribute.getName();
+        _builder.append(_name_6, "\t\t");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("public ");
+        Type _type_6 = attribute.getType();
+        QualifiedName _fullyQualifiedName_5 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_6);
+        _builder.append(_fullyQualifiedName_5, "\t\t");
+        _builder.append(" get");
+        String _name_7 = attribute.getName();
+        String _firstUpper_2 = StringExtensions.toFirstUpper(_name_7);
+        _builder.append(_firstUpper_2, "\t\t");
+        _builder.append("() {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("    ");
+        _builder.append("return this.");
+        String _name_8 = attribute.getName();
+        _builder.append(_name_8, "\t\t    ");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("public void set");
+        String _name_9 = attribute.getName();
+        String _firstUpper_3 = StringExtensions.toFirstUpper(_name_9);
+        _builder.append(_firstUpper_3, "\t\t");
+        _builder.append("(");
+        Type _type_7 = attribute.getType();
+        QualifiedName _fullyQualifiedName_6 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_7);
+        _builder.append(_fullyQualifiedName_6, "\t\t");
+        _builder.append(" ");
+        String _name_10 = attribute.getName();
+        _builder.append(_name_10, "\t\t");
+        _builder.append(") {");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("    ");
+        _builder.append("this.");
+        String _name_11 = attribute.getName();
+        _builder.append(_name_11, "\t\t    ");
+        _builder.append(" = ");
+        String _name_12 = attribute.getName();
+        _builder.append(_name_12, "\t\t    ");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     return _builder;
   }
   
@@ -228,6 +317,7 @@ public class PlayMorphiaModelGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("FormFactory formFactory;");
     _builder.newLine();
+    _builder.append("\t");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@Inject");
@@ -241,6 +331,10 @@ public class PlayMorphiaModelGenerator extends AbstractGenerator {
     String _firstLower = StringExtensions.toFirstLower(_name_4);
     _builder.append(_firstLower, "\t");
     _builder.append("Dao;");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    CharSequence _filterDaoInjects = this.filterDaoInjects(model);
+    _builder.append(_filterDaoInjects, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.newLine();
@@ -422,8 +516,216 @@ public class PlayMorphiaModelGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    {
+      EList<Attribute> _attributes = model.getAttributes();
+      for(final Attribute attribute : _attributes) {
+        {
+          Type _type = attribute.getType();
+          if ((_type instanceof MorphiaModel)) {
+            {
+              boolean _isMany = attribute.isMany();
+              if (_isMany) {
+                _builder.append("\t");
+                _builder.append("public Result addTo");
+                String _name_32 = attribute.getName();
+                String _firstUpper = StringExtensions.toFirstUpper(_name_32);
+                _builder.append(_firstUpper, "\t");
+                _builder.append("(String ");
+                String _name_33 = model.getName();
+                String _firstLower_18 = StringExtensions.toFirstLower(_name_33);
+                _builder.append(_firstLower_18, "\t");
+                _builder.append("Id, String ");
+                String _name_34 = attribute.getName();
+                _builder.append(_name_34, "\t");
+                _builder.append("Id) {");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("final ");
+                Type _type_1 = attribute.getType();
+                QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(_type_1);
+                _builder.append(_fullyQualifiedName, "\t\t");
+                _builder.append(" entityToAdd = ");
+                Type _type_2 = attribute.getType();
+                String _name_35 = _type_2.getName();
+                String _firstLower_19 = StringExtensions.toFirstLower(_name_35);
+                _builder.append(_firstLower_19, "\t\t");
+                _builder.append("Dao.get(");
+                String _name_36 = attribute.getName();
+                _builder.append(_name_36, "\t\t");
+                _builder.append("Id);");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("final Query<");
+                QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_1, "\t\t");
+                _builder.append("> query = DBWrapper.datastore.createQuery(");
+                QualifiedName _fullyQualifiedName_2 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_2, "\t\t");
+                _builder.append(".class).filter(\"_id ==\", ");
+                String _name_37 = model.getName();
+                String _firstLower_20 = StringExtensions.toFirstLower(_name_37);
+                _builder.append(_firstLower_20, "\t\t");
+                _builder.append("Id);");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("final UpdateOperations<");
+                QualifiedName _fullyQualifiedName_3 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_3, "\t\t");
+                _builder.append("> operations = DBWrapper.datastore.createUpdateOperations(");
+                QualifiedName _fullyQualifiedName_4 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_4, "\t\t");
+                _builder.append(".class).add(\"");
+                String _name_38 = attribute.getName();
+                _builder.append(_name_38, "\t\t");
+                _builder.append("\", entityToAdd);");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("DBWrapper.datastore.update(query, operations);");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("return ok(Json.toJson(entityToAdd));");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("}");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("public Result removeFrom");
+                String _name_39 = attribute.getName();
+                String _firstUpper_1 = StringExtensions.toFirstUpper(_name_39);
+                _builder.append(_firstUpper_1, "\t");
+                _builder.append("(String ");
+                String _name_40 = model.getName();
+                String _firstLower_21 = StringExtensions.toFirstLower(_name_40);
+                _builder.append(_firstLower_21, "\t");
+                _builder.append(", String ");
+                String _name_41 = attribute.getName();
+                _builder.append(_name_41, "\t");
+                _builder.append("Id) {");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("final ");
+                Type _type_3 = attribute.getType();
+                QualifiedName _fullyQualifiedName_5 = this._iQualifiedNameProvider.getFullyQualifiedName(_type_3);
+                _builder.append(_fullyQualifiedName_5, "\t\t");
+                _builder.append(" entityToRemove = ");
+                Type _type_4 = attribute.getType();
+                String _name_42 = _type_4.getName();
+                String _firstLower_22 = StringExtensions.toFirstLower(_name_42);
+                _builder.append(_firstLower_22, "\t\t");
+                _builder.append("Dao.get(");
+                String _name_43 = attribute.getName();
+                _builder.append(_name_43, "\t\t");
+                _builder.append("Id);");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("final Query<");
+                QualifiedName _fullyQualifiedName_6 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_6, "\t\t");
+                _builder.append("> query = DBWrapper.datastore.createQuery(");
+                QualifiedName _fullyQualifiedName_7 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_7, "\t\t");
+                _builder.append(".class).filter(\"_id ==\", ");
+                String _name_44 = model.getName();
+                String _firstLower_23 = StringExtensions.toFirstLower(_name_44);
+                _builder.append(_firstLower_23, "\t\t");
+                _builder.append("Id);");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("final UpdateOperations<");
+                QualifiedName _fullyQualifiedName_8 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_8, "\t\t");
+                _builder.append("> operations = DBWrapper.datastore.createUpdateOperations(");
+                QualifiedName _fullyQualifiedName_9 = this._iQualifiedNameProvider.getFullyQualifiedName(model);
+                _builder.append(_fullyQualifiedName_9, "\t\t");
+                _builder.append(".class).removeAll(\"");
+                String _name_45 = attribute.getName();
+                _builder.append(_name_45, "\t\t");
+                _builder.append("\", entityToRemove);");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("DBWrapper.datastore.update(query, operations);");
+                _builder.newLine();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("return ok(Json.toJson(");
+                String _name_46 = attribute.getName();
+                _builder.append(_name_46, "\t\t");
+                _builder.append("Id));");
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("}");
+                _builder.newLine();
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("\t");
+    _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence filterDaoInjects(final MorphiaModel model) {
+    CharSequence _xblockexpression = null;
+    {
+      final HashSet<String> daosToInject = CollectionLiterals.<String>newHashSet();
+      EList<Attribute> _attributes = model.getAttributes();
+      final Function1<Attribute, Boolean> _function = (Attribute it) -> {
+        boolean _and = false;
+        Type _type = it.getType();
+        if (!(_type instanceof MorphiaModel)) {
+          _and = false;
+        } else {
+          boolean _isMany = it.isMany();
+          _and = _isMany;
+        }
+        return Boolean.valueOf(_and);
+      };
+      Iterable<Attribute> _filter = IterableExtensions.<Attribute>filter(_attributes, _function);
+      for (final Attribute attribute : _filter) {
+        Type _type = attribute.getType();
+        String _name = _type.getName();
+        daosToInject.add(_name);
+      }
+      _xblockexpression = this.compileDaoInjects(daosToInject);
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence compileDaoInjects(final HashSet<String> names) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      for(final String name : names) {
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("@Inject ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("private ");
+        _builder.append(name, "\t");
+        _builder.append("Dao ");
+        String _firstLower = StringExtensions.toFirstLower(name);
+        _builder.append(_firstLower, "\t");
+        _builder.append("Dao;");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
 }
