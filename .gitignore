@@ -1,0 +1,14 @@
+*.class
+*.classpath
+de.htwg.mdsd.playmorphiamodel.ide/.settings/
+de.htwg.mdsd.playmorphiamodel.ide/META-INF/MANIFEST.MF
+de.htwg.mdsd.playmorphiamodel.ide/bin/
+de.htwg.mdsd.playmorphiamodel.tests/.settings/
+de.htwg.mdsd.playmorphiamodel.tests/META-INF/MANIFEST.MF
+de.htwg.mdsd.playmorphiamodel.tests/bin/
+*.prefs
+de.htwg.mdsd.playmorphiamodel.ui.tests/META-INF/MANIFEST.MF
+de.htwg.mdsd.playmorphiamodel.ui/META-INF/MANIFEST.MF
+de.htwg.mdsd.playmorphiamodel.ui/bin/
+*.MF
+de.htwg.mdsd.playmorphiamodel/bin/

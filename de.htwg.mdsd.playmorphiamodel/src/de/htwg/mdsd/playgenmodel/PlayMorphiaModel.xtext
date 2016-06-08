@@ -1,0 +1,18 @@
+grammar de.htwg.mdsd.playgenmodel.PlayMorphiaModel with org.eclipse.xtext.common.Terminals
+
+generate playMorphiaModel "http://www.htwg.de/mdsd/playgenmodel/PlayMorphiaModel"
+
+Domainmodel:
+	(elements+=Type)*;
+
+MorphiaModel:
+	'morphiamodel' name=ID '{' (attributes+=Attribute)* '}';
+
+Attribute:
+	(many?='many')? name=ID ':' type=[Type];
+
+Type:
+	DataType | MorphiaModel;
+
+DataType:
+	'datatype' name=ID;
