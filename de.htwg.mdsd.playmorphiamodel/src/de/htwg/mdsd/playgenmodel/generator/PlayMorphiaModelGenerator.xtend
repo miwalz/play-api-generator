@@ -10,6 +10,7 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel
 import com.google.inject.Inject
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute
 
 /**
  * Generates code from your model files on save.
@@ -21,13 +22,102 @@ class PlayMorphiaModelGenerator extends AbstractGenerator {
 	@Inject extension IQualifiedNameProvider
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (e : resource.allContents.toIterable.filter(MorphiaModel)) {
-			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".java", e.compile)
+		for (model : resource.allContents.toIterable.filter(MorphiaModel)) {
+			fsa.generateFile(model.fullyQualifiedName.toString("/") + ".java", model.compileModel)
+			fsa.generateFile(model.fullyQualifiedName.toString("/") + "Dao.java", model.compileDao)
+			fsa.generateFile(model.fullyQualifiedName.toString("/") + "Controller.java", model.compileController)
 		}
 	}
 
-	def compile(MorphiaModel e) '''		    
-		public class «e.name» {
+	def compileModel(MorphiaModel model) '''
+		package genapi.model;
+		
+		import org.mongodb.morphia.annotations.Entity;
+		import core.model.BasicModel;
+		
+		@Entity("«model.name.toFirstLower»")
+		public class «model.name» extends BasicModel {
+			«FOR attribute : model.attributes»
+                «attribute.compileModel»
+            «ENDFOR»
+		}
+	'''
+	
+    def compileModel(Attribute atrribute) '''
+    
+        private «atrribute.type.fullyQualifiedName» «atrribute.name»;
+        
+        public «atrribute.type.fullyQualifiedName» get«atrribute.name.toFirstUpper»() {
+            return «atrribute.name»;
+        }
+        
+        public void set«atrribute.name.toFirstUpper»(«atrribute.type.fullyQualifiedName» «atrribute.name») {
+            this.«atrribute.name» = «atrribute.name»;
+        }
+    '''
+    
+    def compileDao(MorphiaModel model) '''
+		package genapi.dao;
+		
+		import genapi.model.«model.name»;
+		import core.dao.BasicDao;
+		
+		public class «model.name»Dao extends BasicDao<«model.name», String> {}
+	'''
+	
+	def compileController(MorphiaModel model) '''
+		package genapi.controller;
+		
+		import genapi.dao.«model.name»Dao;
+		import genapi.model.«model.name»;
+		import org.bson.types.ObjectId;
+		import org.mongodb.morphia.query.QueryResults;
+		import com.google.inject.Inject;
+		import play.mvc.Controller;
+		import play.mvc.Result;
+		import play.data.FormFactory;
+		import play.libs.Json;
+		import static play.libs.Json.toJson;
+		
+		public class «model.name»Controller extends Controller {
+			
+			@Inject
+			FormFactory formFactory;
+		
+			@Inject
+			private «model.name»Dao «model.name.toFirstLower»Dao;
+			
+			public Result create«model.name»() {
+				final «model.name» «model.name.toFirstLower» = formFactory.form(«model.name».class).bindFromRequest().get();
+				«model.name.toFirstLower».setId(new ObjectId().toString());
+				«model.name.toFirstLower»Dao.save(«model.name.toFirstLower»);
+				return ok(toJson(«model.name.toFirstLower»));
+			}
+		
+			public Result get«model.name»(String id) {
+				final «model.name» «model.name.toFirstLower» = «model.name.toFirstLower»Dao.get(id);
+				return ok(toJson(«model.name.toFirstLower»));
+			}
+		
+			public Result getAll«model.name»() {
+				QueryResults<«model.name»> queryResults = «model.name.toFirstLower»Dao.find();
+				return ok(Json.toJson(queryResults.asList()));
+			}
+		
+			public Result update«model.name»(String id) {
+				final «model.name» «model.name.toFirstLower» = formFactory.form(«model.name.toFirstLower».class).bindFromRequest().get();
+				if (!«model.name.toFirstLower»Dao.exists(id)) {
+					return notFound();
+				}
+				«model.name.toFirstLower».setId(id);
+				«model.name.toFirstLower»Dao.save(«model.name.toFirstLower»);
+				return ok(toJson(«model.name.toFirstLower»));
+			}
+		
+			public Result delete«model.name»(String id) {
+				«model.name.toFirstLower»Dao.deleteById(id);
+				return ok(Json.toJson(id));
+			}
 		}
 	'''
 }
