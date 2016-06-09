@@ -3,10 +3,21 @@ grammar de.htwg.mdsd.playgenmodel.PlayMorphiaModel with org.eclipse.xtext.common
 generate playMorphiaModel "http://www.htwg.de/mdsd/playgenmodel/PlayMorphiaModel"
 
 Domainmodel:
-	(elements+=Type)*;
+	(elements+=AbstractElement)*;
+
+PackageDeclaration:
+    'package' name=QualifiedName '{'
+        (elements+=AbstractElement)*
+    '}';
+
+AbstractElement:
+    PackageDeclaration | Type | Import;
 
 MorphiaModel:
-	'morphiamodel' name=ID '{' (attributes+=Attribute)* '}';
+	'morphiamodel' name=ID '{' 
+	(imports+=Import)*
+	(attributes+=Attribute)* 
+	'}';
 
 Attribute:
 	(many?='many')? name=ID ':' type=[Type];
@@ -16,3 +27,12 @@ Type:
 
 DataType:
 	'datatype' name=ID;
+	
+Import:
+    'import' importedNamespace=QualifiedNameWithWildcard;
+	
+QualifiedNameWithWildcard:
+    QualifiedName '.*'?;
+    
+QualifiedName:
+    ID ('.' ID)*;
