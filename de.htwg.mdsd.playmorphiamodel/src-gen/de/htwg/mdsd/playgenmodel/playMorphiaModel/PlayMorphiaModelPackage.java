@@ -86,14 +86,33 @@ public interface PlayMorphiaModelPackage extends EPackage
   int DOMAINMODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.TypeImpl <em>Type</em>}' class.
+   * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.TypeImpl
-   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getType()
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AbstractElementImpl
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getAbstractElement()
    * @generated
    */
-  int TYPE = 3;
+  int ABSTRACT_ELEMENT = 2;
+
+  /**
+   * The number of structural features of the '<em>Abstract Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSTRACT_ELEMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PackageDeclarationImpl
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getPackageDeclaration()
+   * @generated
+   */
+  int PACKAGE_DECLARATION = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -102,7 +121,44 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__NAME = 0;
+  int PACKAGE_DECLARATION__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_DECLARATION__ELEMENTS = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Package Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_DECLARATION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.TypeImpl
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__NAME = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -111,7 +167,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = 1;
+  int TYPE_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.MorphiaModelImpl <em>Morphia Model</em>}' class.
@@ -121,7 +177,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getMorphiaModel()
    * @generated
    */
-  int MORPHIA_MODEL = 1;
+  int MORPHIA_MODEL = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -133,13 +189,22 @@ public interface PlayMorphiaModelPackage extends EPackage
   int MORPHIA_MODEL__NAME = TYPE__NAME;
 
   /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MORPHIA_MODEL__IMPORTS = TYPE_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MORPHIA_MODEL__ATTRIBUTES = TYPE_FEATURE_COUNT + 0;
+  int MORPHIA_MODEL__ATTRIBUTES = TYPE_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Morphia Model</em>' class.
@@ -148,7 +213,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MORPHIA_MODEL_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+  int MORPHIA_MODEL_FEATURE_COUNT = TYPE_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AttributeImpl <em>Attribute</em>}' class.
@@ -158,7 +223,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 2;
+  int ATTRIBUTE = 4;
 
   /**
    * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -204,7 +269,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 4;
+  int DATA_TYPE = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -223,6 +288,34 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @ordered
    */
   int DATA_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.ImportImpl <em>Import</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.ImportImpl
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getImport()
+   * @generated
+   */
+  int IMPORT = 7;
+
+  /**
+   * The feature id for the '<em><b>Imported Namespace</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__IMPORTED_NAMESPACE = ABSTRACT_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Import</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 1;
 
 
   /**
@@ -247,6 +340,48 @@ public interface PlayMorphiaModelPackage extends EPackage
   EReference getDomainmodel_Elements();
 
   /**
+   * Returns the meta object for class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration <em>Package Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Package Declaration</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration
+   * @generated
+   */
+  EClass getPackageDeclaration();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration#getName()
+   * @see #getPackageDeclaration()
+   * @generated
+   */
+  EAttribute getPackageDeclaration_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration#getElements()
+   * @see #getPackageDeclaration()
+   * @generated
+   */
+  EReference getPackageDeclaration_Elements();
+
+  /**
+   * Returns the meta object for class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Abstract Element</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.AbstractElement
+   * @generated
+   */
+  EClass getAbstractElement();
+
+  /**
    * Returns the meta object for class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel <em>Morphia Model</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -255,6 +390,17 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    */
   EClass getMorphiaModel();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel#getImports()
+   * @see #getMorphiaModel()
+   * @generated
+   */
+  EReference getMorphiaModel_Imports();
 
   /**
    * Returns the meta object for the containment reference list '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel#getAttributes <em>Attributes</em>}'.
@@ -342,6 +488,27 @@ public interface PlayMorphiaModelPackage extends EPackage
   EClass getDataType();
 
   /**
+   * Returns the meta object for class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.Import
+   * @generated
+   */
+  EClass getImport();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Import#getImportedNamespace <em>Imported Namespace</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imported Namespace</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.Import#getImportedNamespace()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_ImportedNamespace();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -383,6 +550,42 @@ public interface PlayMorphiaModelPackage extends EPackage
     EReference DOMAINMODEL__ELEMENTS = eINSTANCE.getDomainmodel_Elements();
 
     /**
+     * The meta object literal for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PackageDeclarationImpl <em>Package Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PackageDeclarationImpl
+     * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getPackageDeclaration()
+     * @generated
+     */
+    EClass PACKAGE_DECLARATION = eINSTANCE.getPackageDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE_DECLARATION__NAME = eINSTANCE.getPackageDeclaration_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE_DECLARATION__ELEMENTS = eINSTANCE.getPackageDeclaration_Elements();
+
+    /**
+     * The meta object literal for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AbstractElementImpl <em>Abstract Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AbstractElementImpl
+     * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getAbstractElement()
+     * @generated
+     */
+    EClass ABSTRACT_ELEMENT = eINSTANCE.getAbstractElement();
+
+    /**
      * The meta object literal for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.MorphiaModelImpl <em>Morphia Model</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -391,6 +594,14 @@ public interface PlayMorphiaModelPackage extends EPackage
      * @generated
      */
     EClass MORPHIA_MODEL = eINSTANCE.getMorphiaModel();
+
+    /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MORPHIA_MODEL__IMPORTS = eINSTANCE.getMorphiaModel_Imports();
 
     /**
      * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
@@ -461,6 +672,24 @@ public interface PlayMorphiaModelPackage extends EPackage
      * @generated
      */
     EClass DATA_TYPE = eINSTANCE.getDataType();
+
+    /**
+     * The meta object literal for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.ImportImpl <em>Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.ImportImpl
+     * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.PlayMorphiaModelPackageImpl#getImport()
+     * @generated
+     */
+    EClass IMPORT = eINSTANCE.getImport();
+
+    /**
+     * The meta object literal for the '<em><b>Imported Namespace</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__IMPORTED_NAMESPACE = eINSTANCE.getImport_ImportedNamespace();
 
   }
 

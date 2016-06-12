@@ -4,6 +4,7 @@
 package de.htwg.mdsd.playgenmodel.playMorphiaModel.impl;
 
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute;
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.Import;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage;
 
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.MorphiaModelImpl#getImports <em>Imports</em>}</li>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.MorphiaModelImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
@@ -34,6 +36,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
 {
+  /**
+   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getImports()
+   * @generated
+   * @ordered
+   */
+  protected EList<Import> imports;
+
   /**
    * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -70,6 +82,20 @@ public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Import> getImports()
+  {
+    if (imports == null)
+    {
+      imports = new EObjectContainmentEList<Import>(Import.class, this, PlayMorphiaModelPackage.MORPHIA_MODEL__IMPORTS);
+    }
+    return imports;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<Attribute> getAttributes()
   {
     if (attributes == null)
@@ -89,6 +115,8 @@ public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
   {
     switch (featureID)
     {
+      case PlayMorphiaModelPackage.MORPHIA_MODEL__IMPORTS:
+        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
       case PlayMorphiaModelPackage.MORPHIA_MODEL__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
     }
@@ -105,6 +133,8 @@ public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
   {
     switch (featureID)
     {
+      case PlayMorphiaModelPackage.MORPHIA_MODEL__IMPORTS:
+        return getImports();
       case PlayMorphiaModelPackage.MORPHIA_MODEL__ATTRIBUTES:
         return getAttributes();
     }
@@ -122,6 +152,10 @@ public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
   {
     switch (featureID)
     {
+      case PlayMorphiaModelPackage.MORPHIA_MODEL__IMPORTS:
+        getImports().clear();
+        getImports().addAll((Collection<? extends Import>)newValue);
+        return;
       case PlayMorphiaModelPackage.MORPHIA_MODEL__ATTRIBUTES:
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
@@ -140,6 +174,9 @@ public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
   {
     switch (featureID)
     {
+      case PlayMorphiaModelPackage.MORPHIA_MODEL__IMPORTS:
+        getImports().clear();
+        return;
       case PlayMorphiaModelPackage.MORPHIA_MODEL__ATTRIBUTES:
         getAttributes().clear();
         return;
@@ -157,6 +194,8 @@ public class MorphiaModelImpl extends TypeImpl implements MorphiaModel
   {
     switch (featureID)
     {
+      case PlayMorphiaModelPackage.MORPHIA_MODEL__IMPORTS:
+        return imports != null && !imports.isEmpty();
       case PlayMorphiaModelPackage.MORPHIA_MODEL__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
     }

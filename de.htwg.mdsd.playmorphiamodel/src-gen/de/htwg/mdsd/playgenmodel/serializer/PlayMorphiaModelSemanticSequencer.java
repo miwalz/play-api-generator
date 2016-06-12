@@ -7,7 +7,9 @@ import com.google.inject.Inject;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.DataType;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Domainmodel;
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.Import;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel;
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage;
 import de.htwg.mdsd.playgenmodel.services.PlayMorphiaModelGrammarAccess;
 import java.util.Set;
@@ -44,8 +46,14 @@ public class PlayMorphiaModelSemanticSequencer extends AbstractDelegatingSemanti
 			case PlayMorphiaModelPackage.DOMAINMODEL:
 				sequence_Domainmodel(context, (Domainmodel) semanticObject); 
 				return; 
+			case PlayMorphiaModelPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
+				return; 
 			case PlayMorphiaModelPackage.MORPHIA_MODEL:
 				sequence_MorphiaModel(context, (MorphiaModel) semanticObject); 
+				return; 
+			case PlayMorphiaModelPackage.PACKAGE_DECLARATION:
+				sequence_PackageDeclaration(context, (PackageDeclaration) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -66,6 +74,7 @@ public class PlayMorphiaModelSemanticSequencer extends AbstractDelegatingSemanti
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns DataType
 	 *     Type returns DataType
 	 *     DataType returns DataType
 	 *
@@ -88,7 +97,7 @@ public class PlayMorphiaModelSemanticSequencer extends AbstractDelegatingSemanti
 	 *     Domainmodel returns Domainmodel
 	 *
 	 * Constraint:
-	 *     elements+=Type+
+	 *     elements+=AbstractElement+
 	 */
 	protected void sequence_Domainmodel(ISerializationContext context, Domainmodel semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -97,13 +106,46 @@ public class PlayMorphiaModelSemanticSequencer extends AbstractDelegatingSemanti
 	
 	/**
 	 * Contexts:
+	 *     AbstractElement returns Import
+	 *     Import returns Import
+	 *
+	 * Constraint:
+	 *     importedNamespace=QualifiedNameWithWildcard
+	 */
+	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PlayMorphiaModelPackage.Literals.IMPORT__IMPORTED_NAMESPACE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PlayMorphiaModelPackage.Literals.IMPORT__IMPORTED_NAMESPACE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0(), semanticObject.getImportedNamespace());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AbstractElement returns MorphiaModel
 	 *     MorphiaModel returns MorphiaModel
 	 *     Type returns MorphiaModel
 	 *
 	 * Constraint:
-	 *     (name=ID attributes+=Attribute*)
+	 *     (name=ID imports+=Import* attributes+=Attribute*)
 	 */
 	protected void sequence_MorphiaModel(ISerializationContext context, MorphiaModel semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     PackageDeclaration returns PackageDeclaration
+	 *     AbstractElement returns PackageDeclaration
+	 *
+	 * Constraint:
+	 *     (name=QualifiedName elements+=AbstractElement*)
+	 */
+	protected void sequence_PackageDeclaration(ISerializationContext context, PackageDeclaration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

@@ -3,9 +3,9 @@
  */
 package de.htwg.mdsd.playgenmodel.playMorphiaModel.impl;
 
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.AbstractElement;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Domainmodel;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage;
-import de.htwg.mdsd.playgenmodel.playMorphiaModel.Type;
 
 import java.util.Collection;
 
@@ -44,7 +44,7 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
    * @generated
    * @ordered
    */
-  protected EList<Type> elements;
+  protected EList<AbstractElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +72,11 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getElements()
+  public EList<AbstractElement> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<Type>(Type.class, this, PlayMorphiaModelPackage.DOMAINMODEL__ELEMENTS);
+      elements = new EObjectContainmentEList<AbstractElement>(AbstractElement.class, this, PlayMorphiaModelPackage.DOMAINMODEL__ELEMENTS);
     }
     return elements;
   }
@@ -126,7 +126,7 @@ public class DomainmodelImpl extends MinimalEObjectImpl.Container implements Dom
     {
       case PlayMorphiaModelPackage.DOMAINMODEL__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends Type>)newValue);
+        getElements().addAll((Collection<? extends AbstractElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

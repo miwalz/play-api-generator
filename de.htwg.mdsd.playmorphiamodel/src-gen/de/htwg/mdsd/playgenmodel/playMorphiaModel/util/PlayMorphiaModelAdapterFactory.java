@@ -81,6 +81,16 @@ public class PlayMorphiaModelAdapterFactory extends AdapterFactoryImpl
         return createDomainmodelAdapter();
       }
       @Override
+      public Adapter casePackageDeclaration(PackageDeclaration object)
+      {
+        return createPackageDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseAbstractElement(AbstractElement object)
+      {
+        return createAbstractElementAdapter();
+      }
+      @Override
       public Adapter caseMorphiaModel(MorphiaModel object)
       {
         return createMorphiaModelAdapter();
@@ -99,6 +109,11 @@ public class PlayMorphiaModelAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDataType(DataType object)
       {
         return createDataTypeAdapter();
+      }
+      @Override
+      public Adapter caseImport(Import object)
+      {
+        return createImportAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -133,6 +148,36 @@ public class PlayMorphiaModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDomainmodelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration <em>Package Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration
+   * @generated
+   */
+  public Adapter createPackageDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.AbstractElement <em>Abstract Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.AbstractElement
+   * @generated
+   */
+  public Adapter createAbstractElementAdapter()
   {
     return null;
   }
@@ -193,6 +238,21 @@ public class PlayMorphiaModelAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDataTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.Import
+   * @generated
+   */
+  public Adapter createImportAdapter()
   {
     return null;
   }

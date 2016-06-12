@@ -9,7 +9,13 @@
     <genClasses ecoreClass="PlayMorphiaModel.ecore#//Domainmodel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PlayMorphiaModel.ecore#//Domainmodel/elements"/>
     </genClasses>
+    <genClasses ecoreClass="PlayMorphiaModel.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PlayMorphiaModel.ecore#//PackageDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PlayMorphiaModel.ecore#//PackageDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="PlayMorphiaModel.ecore#//AbstractElement"/>
     <genClasses ecoreClass="PlayMorphiaModel.ecore#//MorphiaModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PlayMorphiaModel.ecore#//MorphiaModel/imports"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PlayMorphiaModel.ecore#//MorphiaModel/attributes"/>
     </genClasses>
     <genClasses ecoreClass="PlayMorphiaModel.ecore#//Attribute">
@@ -21,5 +27,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PlayMorphiaModel.ecore#//Type/name"/>
     </genClasses>
     <genClasses ecoreClass="PlayMorphiaModel.ecore#//DataType"/>
+    <genClasses ecoreClass="PlayMorphiaModel.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PlayMorphiaModel.ecore#//Import/importedNamespace"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

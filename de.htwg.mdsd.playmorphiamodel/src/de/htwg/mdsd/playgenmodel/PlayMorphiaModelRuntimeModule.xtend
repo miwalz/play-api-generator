@@ -3,9 +3,17 @@
  */
 package de.htwg.mdsd.playgenmodel
 
+import com.google.inject.Binder
+import org.eclipse.xtext.generator.IOutputConfigurationProvider
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 class PlayMorphiaModelRuntimeModule extends AbstractPlayMorphiaModelRuntimeModule {
+
+	override void configure(Binder binder) {
+		super.configure(binder)
+		binder.bind(IOutputConfigurationProvider).to(CustomOutputProvider).asEagerSingleton()
+	}
+
 }

@@ -66,10 +66,13 @@ public class PlayMorphiaModelFactoryImpl extends EFactoryImpl implements PlayMor
     switch (eClass.getClassifierID())
     {
       case PlayMorphiaModelPackage.DOMAINMODEL: return createDomainmodel();
+      case PlayMorphiaModelPackage.PACKAGE_DECLARATION: return createPackageDeclaration();
+      case PlayMorphiaModelPackage.ABSTRACT_ELEMENT: return createAbstractElement();
       case PlayMorphiaModelPackage.MORPHIA_MODEL: return createMorphiaModel();
       case PlayMorphiaModelPackage.ATTRIBUTE: return createAttribute();
       case PlayMorphiaModelPackage.TYPE: return createType();
       case PlayMorphiaModelPackage.DATA_TYPE: return createDataType();
+      case PlayMorphiaModelPackage.IMPORT: return createImport();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -84,6 +87,28 @@ public class PlayMorphiaModelFactoryImpl extends EFactoryImpl implements PlayMor
   {
     DomainmodelImpl domainmodel = new DomainmodelImpl();
     return domainmodel;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PackageDeclaration createPackageDeclaration()
+  {
+    PackageDeclarationImpl packageDeclaration = new PackageDeclarationImpl();
+    return packageDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractElement createAbstractElement()
+  {
+    AbstractElementImpl abstractElement = new AbstractElementImpl();
+    return abstractElement;
   }
 
   /**
@@ -128,6 +153,17 @@ public class PlayMorphiaModelFactoryImpl extends EFactoryImpl implements PlayMor
   {
     DataTypeImpl dataType = new DataTypeImpl();
     return dataType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Import createImport()
+  {
+    ImportImpl import_ = new ImportImpl();
+    return import_;
   }
 
   /**

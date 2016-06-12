@@ -3,10 +3,13 @@
  */
 package de.htwg.mdsd.playgenmodel.playMorphiaModel.impl;
 
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.AbstractElement;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.DataType;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Domainmodel;
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.Import;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel;
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.PackageDeclaration;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelFactory;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage;
 import de.htwg.mdsd.playgenmodel.playMorphiaModel.Type;
@@ -38,6 +41,20 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass packageDeclarationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass abstractElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass morphiaModelEClass = null;
 
   /**
@@ -60,6 +77,13 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * @generated
    */
   private EClass dataTypeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -149,6 +173,46 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPackageDeclaration()
+  {
+    return packageDeclarationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackageDeclaration_Name()
+  {
+    return (EAttribute)packageDeclarationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackageDeclaration_Elements()
+  {
+    return (EReference)packageDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbstractElement()
+  {
+    return abstractElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getMorphiaModel()
   {
     return morphiaModelEClass;
@@ -159,9 +223,19 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMorphiaModel_Attributes()
+  public EReference getMorphiaModel_Imports()
   {
     return (EReference)morphiaModelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMorphiaModel_Attributes()
+  {
+    return (EReference)morphiaModelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -239,6 +313,26 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getImport()
+  {
+    return importEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImport_ImportedNamespace()
+  {
+    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public PlayMorphiaModelFactory getPlayMorphiaModelFactory()
   {
     return (PlayMorphiaModelFactory)getEFactoryInstance();
@@ -267,7 +361,14 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
     domainmodelEClass = createEClass(DOMAINMODEL);
     createEReference(domainmodelEClass, DOMAINMODEL__ELEMENTS);
 
+    packageDeclarationEClass = createEClass(PACKAGE_DECLARATION);
+    createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__NAME);
+    createEReference(packageDeclarationEClass, PACKAGE_DECLARATION__ELEMENTS);
+
+    abstractElementEClass = createEClass(ABSTRACT_ELEMENT);
+
     morphiaModelEClass = createEClass(MORPHIA_MODEL);
+    createEReference(morphiaModelEClass, MORPHIA_MODEL__IMPORTS);
     createEReference(morphiaModelEClass, MORPHIA_MODEL__ATTRIBUTES);
 
     attributeEClass = createEClass(ATTRIBUTE);
@@ -279,6 +380,9 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
     createEAttribute(typeEClass, TYPE__NAME);
 
     dataTypeEClass = createEClass(DATA_TYPE);
+
+    importEClass = createEClass(IMPORT);
+    createEAttribute(importEClass, IMPORT__IMPORTED_NAMESPACE);
   }
 
   /**
@@ -310,14 +414,24 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    packageDeclarationEClass.getESuperTypes().add(this.getAbstractElement());
     morphiaModelEClass.getESuperTypes().add(this.getType());
+    typeEClass.getESuperTypes().add(this.getAbstractElement());
     dataTypeEClass.getESuperTypes().add(this.getType());
+    importEClass.getESuperTypes().add(this.getAbstractElement());
 
     // Initialize classes and features; add operations and parameters
     initEClass(domainmodelEClass, Domainmodel.class, "Domainmodel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomainmodel_Elements(), this.getType(), null, "elements", null, 0, -1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomainmodel_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, Domainmodel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(packageDeclarationEClass, PackageDeclaration.class, "PackageDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPackageDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackageDeclaration_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(abstractElementEClass, AbstractElement.class, "AbstractElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(morphiaModelEClass, MorphiaModel.class, "MorphiaModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMorphiaModel_Imports(), this.getImport(), null, "imports", null, 0, -1, MorphiaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMorphiaModel_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, MorphiaModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -329,6 +443,9 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
