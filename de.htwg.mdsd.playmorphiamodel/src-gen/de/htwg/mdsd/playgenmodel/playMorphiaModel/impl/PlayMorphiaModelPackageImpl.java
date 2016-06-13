@@ -263,7 +263,7 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAttribute_Name()
+  public EAttribute getAttribute_Embedded()
   {
     return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
   }
@@ -273,9 +273,19 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getAttribute_Name()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getAttribute_Type()
   {
-    return (EReference)attributeEClass.getEStructuralFeatures().get(2);
+    return (EReference)attributeEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -373,6 +383,7 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__MANY);
+    createEAttribute(attributeEClass, ATTRIBUTE__EMBEDDED);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
     createEReference(attributeEClass, ATTRIBUTE__TYPE);
 
@@ -436,6 +447,7 @@ public class PlayMorphiaModelPackageImpl extends EPackageImpl implements PlayMor
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribute_Embedded(), ecorePackage.getEBoolean(), "embedded", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAttribute_Type(), this.getType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

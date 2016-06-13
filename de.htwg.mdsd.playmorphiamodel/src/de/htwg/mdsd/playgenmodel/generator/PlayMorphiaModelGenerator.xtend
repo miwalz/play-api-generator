@@ -11,6 +11,7 @@ import de.htwg.mdsd.playgenmodel.generator.model.ModelGenerator
 import de.htwg.mdsd.playgenmodel.generator.dao.DaoGenerator
 import de.htwg.mdsd.playgenmodel.CustomOutputProvider
 import de.htwg.mdsd.playgenmodel.generator.controller.ControllerGenerator
+import de.htwg.mdsd.playgenmodel.generator.routes.RoutesGenerator
 
 class PlayMorphiaModelGenerator extends AbstractGenerator {
 
@@ -19,17 +20,31 @@ class PlayMorphiaModelGenerator extends AbstractGenerator {
 	@Inject ModelGenerator modelGenerator
 	@Inject DaoGenerator daoGenerator
 	@Inject ControllerGenerator controllerGenerator
+	@Inject RoutesGenerator routesGenerator
 	
-	@Inject CustomOutputProvider customOutputProvider
-
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (model : resource.allContents.toIterable.filter(MorphiaModel)) {
+		var models = resource.allContents.toIterable.filter(MorphiaModel)
+		for (model : models) {
 			val name = model.fullyQualifiedName.toString("/")
-			for (out : customOutputProvider.outputConfigurations) {
-				fsa.generateFile("model/" + name + ".java", out.name, modelGenerator.compile(model))
-				fsa.generateFile("dao/" + name + "Dao.java", out.name, daoGenerator.compile(model))
-				fsa.generateFile("controller/" + name + "Controller.java", out.name, controllerGenerator.compile(model))
-			}
+			
+			// src-gen
+			fsa.generateFile("model/" + name + ".java", modelGenerator.compile(model))
+			fsa.generateFile("dao/" + name + "Dao.java", daoGenerator.compile(model))
+			fsa.generateFile("controller/" + name + "Controller.java", controllerGenerator.compile(model))
+			
+			// app/genapi
+			fsa.generateFile("model/" + name + ".java", CustomOutputProvider::PLAY_OUTPUT_APP_GENAPI, modelGenerator.compile(model))
+			fsa.generateFile("dao/" + name + "Dao.java", CustomOutputProvider::PLAY_OUTPUT_APP_GENAPI, daoGenerator.compile(model))
+			fsa.generateFile("controller/" + name + "Controller.java", CustomOutputProvider::PLAY_OUTPUT_APP_GENAPI, controllerGenerator.compile(model))
+			
 		}
+		
+		var modelList = resource.allContents.filter(MorphiaModel).toList;
+		
+		// src-gen
+		fsa.generateFile("routes", routesGenerator.compile(modelList))
+		
+		// conf
+		fsa.generateFile("routes", CustomOutputProvider::PLAY_OUTPUT_CONF_ROUTES , routesGenerator.compile(modelList))
 	}
 }

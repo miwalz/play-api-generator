@@ -30,6 +30,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
     public static final int RULE_INT=5;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -152,10 +153,11 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:16:7: ( ':' )
-            // InternalPlayMorphiaModel.g:16:9: ':'
+            // InternalPlayMorphiaModel.g:16:7: ( 'embedded' )
+            // InternalPlayMorphiaModel.g:16:9: 'embedded'
             {
-            match(':'); 
+            match("embedded"); 
+
 
             }
 
@@ -172,11 +174,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:17:7: ( 'datatype' )
-            // InternalPlayMorphiaModel.g:17:9: 'datatype'
+            // InternalPlayMorphiaModel.g:17:7: ( ':' )
+            // InternalPlayMorphiaModel.g:17:9: ':'
             {
-            match("datatype"); 
-
+            match(':'); 
 
             }
 
@@ -193,10 +194,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:18:7: ( 'import' )
-            // InternalPlayMorphiaModel.g:18:9: 'import'
+            // InternalPlayMorphiaModel.g:18:7: ( 'datatype' )
+            // InternalPlayMorphiaModel.g:18:9: 'datatype'
             {
-            match("import"); 
+            match("datatype"); 
 
 
             }
@@ -214,10 +215,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:19:7: ( '.*' )
-            // InternalPlayMorphiaModel.g:19:9: '.*'
+            // InternalPlayMorphiaModel.g:19:7: ( 'import' )
+            // InternalPlayMorphiaModel.g:19:9: 'import'
             {
-            match(".*"); 
+            match("import"); 
 
 
             }
@@ -235,10 +236,11 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:20:7: ( '.' )
-            // InternalPlayMorphiaModel.g:20:9: '.'
+            // InternalPlayMorphiaModel.g:20:7: ( '.*' )
+            // InternalPlayMorphiaModel.g:20:9: '.*'
             {
-            match('.'); 
+            match(".*"); 
+
 
             }
 
@@ -250,15 +252,35 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
     }
     // $ANTLR end "T__20"
 
+    // $ANTLR start "T__21"
+    public final void mT__21() throws RecognitionException {
+        try {
+            int _type = T__21;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalPlayMorphiaModel.g:21:7: ( '.' )
+            // InternalPlayMorphiaModel.g:21:9: '.'
+            {
+            match('.'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__21"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:563:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalPlayMorphiaModel.g:563:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalPlayMorphiaModel.g:579:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalPlayMorphiaModel.g:579:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalPlayMorphiaModel.g:563:11: ( '^' )?
+            // InternalPlayMorphiaModel.g:579:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -267,7 +289,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:563:11: '^'
+                    // InternalPlayMorphiaModel.g:579:11: '^'
                     {
                     match('^'); 
 
@@ -285,7 +307,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalPlayMorphiaModel.g:563:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalPlayMorphiaModel.g:579:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -334,10 +356,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:565:10: ( ( '0' .. '9' )+ )
-            // InternalPlayMorphiaModel.g:565:12: ( '0' .. '9' )+
+            // InternalPlayMorphiaModel.g:581:10: ( ( '0' .. '9' )+ )
+            // InternalPlayMorphiaModel.g:581:12: ( '0' .. '9' )+
             {
-            // InternalPlayMorphiaModel.g:565:12: ( '0' .. '9' )+
+            // InternalPlayMorphiaModel.g:581:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -351,7 +373,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalPlayMorphiaModel.g:565:13: '0' .. '9'
+            	    // InternalPlayMorphiaModel.g:581:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -383,10 +405,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:567:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalPlayMorphiaModel.g:567:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPlayMorphiaModel.g:583:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalPlayMorphiaModel.g:583:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalPlayMorphiaModel.g:567:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalPlayMorphiaModel.g:583:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -404,10 +426,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:567:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalPlayMorphiaModel.g:583:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalPlayMorphiaModel.g:567:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalPlayMorphiaModel.g:583:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -423,7 +445,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalPlayMorphiaModel.g:567:21: '\\\\' .
+                    	    // InternalPlayMorphiaModel.g:583:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -431,7 +453,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPlayMorphiaModel.g:567:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalPlayMorphiaModel.g:583:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -456,10 +478,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalPlayMorphiaModel.g:567:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalPlayMorphiaModel.g:583:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalPlayMorphiaModel.g:567:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalPlayMorphiaModel.g:583:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -475,7 +497,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalPlayMorphiaModel.g:567:54: '\\\\' .
+                    	    // InternalPlayMorphiaModel.g:583:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -483,7 +505,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalPlayMorphiaModel.g:567:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalPlayMorphiaModel.g:583:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -526,12 +548,12 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:569:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalPlayMorphiaModel.g:569:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalPlayMorphiaModel.g:585:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalPlayMorphiaModel.g:585:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalPlayMorphiaModel.g:569:24: ( options {greedy=false; } : . )*
+            // InternalPlayMorphiaModel.g:585:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -556,7 +578,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalPlayMorphiaModel.g:569:52: .
+            	    // InternalPlayMorphiaModel.g:585:52: .
             	    {
             	    matchAny(); 
 
@@ -586,12 +608,12 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:571:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalPlayMorphiaModel.g:571:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalPlayMorphiaModel.g:587:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalPlayMorphiaModel.g:587:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalPlayMorphiaModel.g:571:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalPlayMorphiaModel.g:587:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -604,7 +626,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalPlayMorphiaModel.g:571:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalPlayMorphiaModel.g:587:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -624,7 +646,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalPlayMorphiaModel.g:571:40: ( ( '\\r' )? '\\n' )?
+            // InternalPlayMorphiaModel.g:587:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -633,9 +655,9 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:571:41: ( '\\r' )? '\\n'
+                    // InternalPlayMorphiaModel.g:587:41: ( '\\r' )? '\\n'
                     {
-                    // InternalPlayMorphiaModel.g:571:41: ( '\\r' )?
+                    // InternalPlayMorphiaModel.g:587:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -644,7 +666,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalPlayMorphiaModel.g:571:41: '\\r'
+                            // InternalPlayMorphiaModel.g:587:41: '\\r'
                             {
                             match('\r'); 
 
@@ -676,10 +698,10 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:573:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalPlayMorphiaModel.g:573:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPlayMorphiaModel.g:589:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalPlayMorphiaModel.g:589:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalPlayMorphiaModel.g:573:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalPlayMorphiaModel.g:589:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -733,8 +755,8 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalPlayMorphiaModel.g:575:16: ( . )
-            // InternalPlayMorphiaModel.g:575:18: .
+            // InternalPlayMorphiaModel.g:591:16: ( . )
+            // InternalPlayMorphiaModel.g:591:18: .
             {
             matchAny(); 
 
@@ -749,8 +771,8 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalPlayMorphiaModel.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=17;
+        // InternalPlayMorphiaModel.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=18;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -824,49 +846,56 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // InternalPlayMorphiaModel.g:1:70: RULE_ID
+                // InternalPlayMorphiaModel.g:1:70: T__21
+                {
+                mT__21(); 
+
+                }
+                break;
+            case 12 :
+                // InternalPlayMorphiaModel.g:1:76: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 12 :
-                // InternalPlayMorphiaModel.g:1:78: RULE_INT
+            case 13 :
+                // InternalPlayMorphiaModel.g:1:84: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 13 :
-                // InternalPlayMorphiaModel.g:1:87: RULE_STRING
+            case 14 :
+                // InternalPlayMorphiaModel.g:1:93: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 14 :
-                // InternalPlayMorphiaModel.g:1:99: RULE_ML_COMMENT
+            case 15 :
+                // InternalPlayMorphiaModel.g:1:105: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 15 :
-                // InternalPlayMorphiaModel.g:1:115: RULE_SL_COMMENT
+            case 16 :
+                // InternalPlayMorphiaModel.g:1:121: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 16 :
-                // InternalPlayMorphiaModel.g:1:131: RULE_WS
+            case 17 :
+                // InternalPlayMorphiaModel.g:1:137: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 17 :
-                // InternalPlayMorphiaModel.g:1:139: RULE_ANY_OTHER
+            case 18 :
+                // InternalPlayMorphiaModel.g:1:145: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -880,82 +909,91 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\1\22\2\uffff\1\22\1\uffff\2\22\1\33\1\20\2\uffff\3\20\2\uffff\1\22\3\uffff\2\22\1\uffff\2\22\7\uffff\7\22\1\55\4\22\1\uffff\5\22\1\67\1\70\2\22\2\uffff\1\22\1\74\1\22\1\uffff\2\22\1\100\1\uffff";
+        "\1\uffff\1\23\2\uffff\2\23\1\uffff\2\23\1\35\1\21\2\uffff\3\21\2\uffff\1\23\3\uffff\3\23\1\uffff\2\23\7\uffff\10\23\1\61\5\23\1\uffff\7\23\1\76\1\77\3\23\2\uffff\1\23\1\104\1\105\1\23\2\uffff\2\23\1\111\1\uffff";
     static final String DFA12_eofS =
-        "\101\uffff";
+        "\112\uffff";
     static final String DFA12_minS =
-        "\1\0\1\141\2\uffff\1\141\1\uffff\1\141\1\155\1\52\1\101\2\uffff\2\0\1\52\2\uffff\1\143\3\uffff\1\162\1\156\1\uffff\1\164\1\160\7\uffff\1\153\1\160\1\171\1\141\1\157\1\141\1\150\1\60\1\164\1\162\1\147\1\151\1\uffff\1\171\1\164\1\145\1\141\1\160\2\60\1\155\1\145\2\uffff\1\157\1\60\1\144\1\uffff\1\145\1\154\1\60\1\uffff";
+        "\1\0\1\141\2\uffff\1\141\1\155\1\uffff\1\141\1\155\1\52\1\101\2\uffff\2\0\1\52\2\uffff\1\143\3\uffff\1\162\1\156\1\142\1\uffff\1\164\1\160\7\uffff\1\153\1\160\1\171\1\145\1\141\1\157\1\141\1\150\1\60\1\144\1\164\1\162\1\147\1\151\1\uffff\1\144\1\171\1\164\1\145\1\141\1\145\1\160\2\60\1\155\1\144\1\145\2\uffff\1\157\2\60\1\144\2\uffff\1\145\1\154\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\141\2\uffff\1\157\1\uffff\1\141\1\155\1\52\1\172\2\uffff\2\uffff\1\57\2\uffff\1\143\3\uffff\1\162\1\156\1\uffff\1\164\1\160\7\uffff\1\153\1\160\1\171\1\141\1\157\1\141\1\150\1\172\1\164\1\162\1\147\1\151\1\uffff\1\171\1\164\1\145\1\141\1\160\2\172\1\155\1\145\2\uffff\1\157\1\172\1\144\1\uffff\1\145\1\154\1\172\1\uffff";
+        "\1\uffff\1\141\2\uffff\1\157\1\155\1\uffff\1\141\1\155\1\52\1\172\2\uffff\2\uffff\1\57\2\uffff\1\143\3\uffff\1\162\1\156\1\142\1\uffff\1\164\1\160\7\uffff\1\153\1\160\1\171\1\145\1\141\1\157\1\141\1\150\1\172\1\144\1\164\1\162\1\147\1\151\1\uffff\1\144\1\171\1\164\1\145\1\141\1\145\1\160\2\172\1\155\1\144\1\145\2\uffff\1\157\2\172\1\144\2\uffff\1\145\1\154\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\2\uffff\1\2\1\3\1\uffff\1\6\4\uffff\1\13\1\14\3\uffff\1\20\1\21\1\uffff\1\13\1\2\1\3\2\uffff\1\6\2\uffff\1\11\1\12\1\14\1\15\1\16\1\17\1\20\14\uffff\1\5\11\uffff\1\10\1\1\3\uffff\1\7\3\uffff\1\4";
+        "\2\uffff\1\2\1\3\2\uffff\1\7\4\uffff\1\14\1\15\3\uffff\1\21\1\22\1\uffff\1\14\1\2\1\3\3\uffff\1\7\2\uffff\1\12\1\13\1\15\1\16\1\17\1\20\1\21\16\uffff\1\5\14\uffff\1\11\1\1\4\uffff\1\6\1\10\3\uffff\1\4";
     static final String DFA12_specialS =
-        "\1\0\13\uffff\1\1\1\2\63\uffff}>";
+        "\1\0\14\uffff\1\1\1\2\73\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\20\2\17\2\20\1\17\22\20\1\17\1\20\1\14\4\20\1\15\6\20\1\10\1\16\12\13\1\5\6\20\32\12\3\20\1\11\1\12\1\20\3\12\1\6\4\12\1\7\3\12\1\4\2\12\1\1\12\12\1\2\1\20\1\3\uff82\20",
-            "\1\21",
+            "\11\21\2\20\2\21\1\20\22\21\1\20\1\21\1\15\4\21\1\16\6\21\1\11\1\17\12\14\1\6\6\21\32\13\3\21\1\12\1\13\1\21\3\13\1\7\1\5\3\13\1\10\3\13\1\4\2\13\1\1\12\13\1\2\1\21\1\3\uff82\21",
+            "\1\22",
             "",
             "",
-            "\1\26\15\uffff\1\25",
-            "",
+            "\1\27\15\uffff\1\26",
             "\1\30",
-            "\1\31",
+            "",
             "\1\32",
-            "\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\1\33",
+            "\1\34",
+            "\32\23\4\uffff\1\23\1\uffff\32\23",
             "",
             "",
-            "\0\35",
-            "\0\35",
-            "\1\36\4\uffff\1\37",
+            "\0\37",
+            "\0\37",
+            "\1\40\4\uffff\1\41",
             "",
             "",
-            "\1\41",
-            "",
-            "",
-            "",
-            "\1\42",
             "\1\43",
+            "",
+            "",
             "",
             "\1\44",
             "\1\45",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\46",
+            "",
             "\1\47",
             "\1\50",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\51",
             "\1\52",
             "\1\53",
             "\1\54",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\1\55",
             "\1\56",
             "\1\57",
             "\1\60",
-            "\1\61",
-            "",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             "\1\62",
             "\1\63",
             "\1\64",
             "\1\65",
             "\1\66",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "",
+            "\1\67",
+            "\1\70",
             "\1\71",
             "\1\72",
-            "",
-            "",
             "\1\73",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\1\74",
             "\1\75",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\100",
+            "\1\101",
+            "\1\102",
             "",
-            "\1\76",
-            "\1\77",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "",
+            "\1\103",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\106",
+            "",
+            "",
+            "\1\107",
+            "\1\110",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             ""
     };
 
@@ -989,7 +1027,7 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1007,49 +1045,51 @@ public class InternalPlayMorphiaModelLexer extends Lexer {
 
                         else if ( (LA12_0=='m') ) {s = 4;}
 
-                        else if ( (LA12_0==':') ) {s = 5;}
+                        else if ( (LA12_0=='e') ) {s = 5;}
 
-                        else if ( (LA12_0=='d') ) {s = 6;}
+                        else if ( (LA12_0==':') ) {s = 6;}
 
-                        else if ( (LA12_0=='i') ) {s = 7;}
+                        else if ( (LA12_0=='d') ) {s = 7;}
 
-                        else if ( (LA12_0=='.') ) {s = 8;}
+                        else if ( (LA12_0=='i') ) {s = 8;}
 
-                        else if ( (LA12_0=='^') ) {s = 9;}
+                        else if ( (LA12_0=='.') ) {s = 9;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='c')||(LA12_0>='e' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='o')||(LA12_0>='q' && LA12_0<='z')) ) {s = 10;}
+                        else if ( (LA12_0=='^') ) {s = 10;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 11;}
+                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='c')||(LA12_0>='f' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='o')||(LA12_0>='q' && LA12_0<='z')) ) {s = 11;}
 
-                        else if ( (LA12_0=='\"') ) {s = 12;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 12;}
 
-                        else if ( (LA12_0=='\'') ) {s = 13;}
+                        else if ( (LA12_0=='\"') ) {s = 13;}
 
-                        else if ( (LA12_0=='/') ) {s = 14;}
+                        else if ( (LA12_0=='\'') ) {s = 14;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 15;}
+                        else if ( (LA12_0=='/') ) {s = 15;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='-')||(LA12_0>=';' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 16;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 16;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='-')||(LA12_0>=';' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 17;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_12 = input.LA(1);
+                        int LA12_13 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_12>='\u0000' && LA12_12<='\uFFFF')) ) {s = 29;}
+                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 31;}
 
-                        else s = 16;
+                        else s = 17;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_13 = input.LA(1);
+                        int LA12_14 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 29;}
+                        if ( ((LA12_14>='\u0000' && LA12_14<='\uFFFF')) ) {s = 31;}
 
-                        else s = 16;
+                        else s = 17;
 
                         if ( s>=0 ) return s;
                         break;

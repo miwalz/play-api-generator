@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'morphiamodel'", "'many'", "':'", "'datatype'", "'import'", "'.*'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'morphiamodel'", "'many'", "'embedded'", "':'", "'datatype'", "'import'", "'.*'", "'.'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -41,6 +41,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
     public static final int RULE_INT=5;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -138,7 +139,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==11||LA1_0==14||(LA1_0>=17 && LA1_0<=18)) ) {
+                if ( (LA1_0==11||LA1_0==14||(LA1_0>=18 && LA1_0<=19)) ) {
                     alt1=1;
                 }
 
@@ -304,7 +305,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==11||LA2_0==14||(LA2_0>=17 && LA2_0<=18)) ) {
+                if ( (LA2_0==11||LA2_0==14||(LA2_0>=18 && LA2_0<=19)) ) {
                     alt2=1;
                 }
 
@@ -437,12 +438,12 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
                 }
                 break;
             case 14:
-            case 17:
+            case 18:
                 {
                 alt3=2;
                 }
                 break;
-            case 18:
+            case 19:
                 {
                 alt3=3;
                 }
@@ -631,7 +632,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==18) ) {
+                if ( (LA4_0==19) ) {
                     alt4=1;
                 }
 
@@ -786,49 +787,89 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalPlayMorphiaModel.g:308:1: ruleAttribute returns [EObject current=null] : ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) ;
+    // InternalPlayMorphiaModel.g:308:1: ruleAttribute returns [EObject current=null] : ( ( ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )? )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) ) ;
     public final EObject ruleAttribute() throws RecognitionException {
         EObject current = null;
 
         Token lv_many_0_0=null;
-        Token lv_name_1_0=null;
-        Token otherlv_2=null;
+        Token lv_embedded_1_0=null;
+        Token lv_name_2_0=null;
         Token otherlv_3=null;
+        Token otherlv_4=null;
 
 
         	enterRule();
 
         try {
-            // InternalPlayMorphiaModel.g:314:2: ( ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) ) )
-            // InternalPlayMorphiaModel.g:315:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
+            // InternalPlayMorphiaModel.g:314:2: ( ( ( ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )? )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) ) )
+            // InternalPlayMorphiaModel.g:315:2: ( ( ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )? )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) )
             {
-            // InternalPlayMorphiaModel.g:315:2: ( ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) ) )
-            // InternalPlayMorphiaModel.g:316:3: ( (lv_many_0_0= 'many' ) )? ( (lv_name_1_0= RULE_ID ) ) otherlv_2= ':' ( (otherlv_3= RULE_ID ) )
+            // InternalPlayMorphiaModel.g:315:2: ( ( ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )? )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) ) )
+            // InternalPlayMorphiaModel.g:316:3: ( ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )? )? ( (lv_name_2_0= RULE_ID ) ) otherlv_3= ':' ( (otherlv_4= RULE_ID ) )
             {
-            // InternalPlayMorphiaModel.g:316:3: ( (lv_many_0_0= 'many' ) )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // InternalPlayMorphiaModel.g:316:3: ( ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )? )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0==15) ) {
-                alt6=1;
+            if ( (LA7_0==15) ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:317:4: (lv_many_0_0= 'many' )
+                    // InternalPlayMorphiaModel.g:317:4: ( (lv_many_0_0= 'many' ) ) ( (lv_embedded_1_0= 'embedded' ) )?
                     {
-                    // InternalPlayMorphiaModel.g:317:4: (lv_many_0_0= 'many' )
-                    // InternalPlayMorphiaModel.g:318:5: lv_many_0_0= 'many'
+                    // InternalPlayMorphiaModel.g:317:4: ( (lv_many_0_0= 'many' ) )
+                    // InternalPlayMorphiaModel.g:318:5: (lv_many_0_0= 'many' )
                     {
-                    lv_many_0_0=(Token)match(input,15,FOLLOW_4); 
+                    // InternalPlayMorphiaModel.g:318:5: (lv_many_0_0= 'many' )
+                    // InternalPlayMorphiaModel.g:319:6: lv_many_0_0= 'many'
+                    {
+                    lv_many_0_0=(Token)match(input,15,FOLLOW_9); 
 
-                    					newLeafNode(lv_many_0_0, grammarAccess.getAttributeAccess().getManyManyKeyword_0_0());
-                    				
+                    						newLeafNode(lv_many_0_0, grammarAccess.getAttributeAccess().getManyManyKeyword_0_0_0());
+                    					
 
-                    					if (current==null) {
-                    						current = createModelElement(grammarAccess.getAttributeRule());
-                    					}
-                    					setWithLastConsumed(current, "many", true, "many");
-                    				
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getAttributeRule());
+                    						}
+                    						setWithLastConsumed(current, "many", true, "many");
+                    					
+
+                    }
+
+
+                    }
+
+                    // InternalPlayMorphiaModel.g:331:4: ( (lv_embedded_1_0= 'embedded' ) )?
+                    int alt6=2;
+                    int LA6_0 = input.LA(1);
+
+                    if ( (LA6_0==16) ) {
+                        alt6=1;
+                    }
+                    switch (alt6) {
+                        case 1 :
+                            // InternalPlayMorphiaModel.g:332:5: (lv_embedded_1_0= 'embedded' )
+                            {
+                            // InternalPlayMorphiaModel.g:332:5: (lv_embedded_1_0= 'embedded' )
+                            // InternalPlayMorphiaModel.g:333:6: lv_embedded_1_0= 'embedded'
+                            {
+                            lv_embedded_1_0=(Token)match(input,16,FOLLOW_4); 
+
+                            						newLeafNode(lv_embedded_1_0, grammarAccess.getAttributeAccess().getEmbeddedEmbeddedKeyword_0_1_0());
+                            					
+
+                            						if (current==null) {
+                            							current = createModelElement(grammarAccess.getAttributeRule());
+                            						}
+                            						setWithLastConsumed(current, "embedded", true, "embedded");
+                            					
+
+                            }
+
+
+                            }
+                            break;
 
                     }
 
@@ -838,15 +879,15 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
             }
 
-            // InternalPlayMorphiaModel.g:330:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalPlayMorphiaModel.g:331:4: (lv_name_1_0= RULE_ID )
+            // InternalPlayMorphiaModel.g:346:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalPlayMorphiaModel.g:347:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:331:4: (lv_name_1_0= RULE_ID )
-            // InternalPlayMorphiaModel.g:332:5: lv_name_1_0= RULE_ID
+            // InternalPlayMorphiaModel.g:347:4: (lv_name_2_0= RULE_ID )
+            // InternalPlayMorphiaModel.g:348:5: lv_name_2_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
+            lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
-            					newLeafNode(lv_name_1_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_name_2_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -855,7 +896,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
             					setWithLastConsumed(
             						current,
             						"name",
-            						lv_name_1_0,
+            						lv_name_2_0,
             						"org.eclipse.xtext.common.Terminals.ID");
             				
 
@@ -864,24 +905,24 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
             }
 
-            otherlv_2=(Token)match(input,16,FOLLOW_4); 
+            otherlv_3=(Token)match(input,17,FOLLOW_4); 
 
-            			newLeafNode(otherlv_2, grammarAccess.getAttributeAccess().getColonKeyword_2());
+            			newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getColonKeyword_2());
             		
-            // InternalPlayMorphiaModel.g:352:3: ( (otherlv_3= RULE_ID ) )
-            // InternalPlayMorphiaModel.g:353:4: (otherlv_3= RULE_ID )
+            // InternalPlayMorphiaModel.g:368:3: ( (otherlv_4= RULE_ID ) )
+            // InternalPlayMorphiaModel.g:369:4: (otherlv_4= RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:353:4: (otherlv_3= RULE_ID )
-            // InternalPlayMorphiaModel.g:354:5: otherlv_3= RULE_ID
+            // InternalPlayMorphiaModel.g:369:4: (otherlv_4= RULE_ID )
+            // InternalPlayMorphiaModel.g:370:5: otherlv_4= RULE_ID
             {
 
             					if (current==null) {
             						current = createModelElement(grammarAccess.getAttributeRule());
             					}
             				
-            otherlv_3=(Token)match(input,RULE_ID,FOLLOW_2); 
+            otherlv_4=(Token)match(input,RULE_ID,FOLLOW_2); 
 
-            					newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getTypeTypeCrossReference_3_0());
+            					newLeafNode(otherlv_4, grammarAccess.getAttributeAccess().getTypeTypeCrossReference_3_0());
             				
 
             }
@@ -912,7 +953,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "entryRuleType"
-    // InternalPlayMorphiaModel.g:369:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
+    // InternalPlayMorphiaModel.g:385:1: entryRuleType returns [EObject current=null] : iv_ruleType= ruleType EOF ;
     public final EObject entryRuleType() throws RecognitionException {
         EObject current = null;
 
@@ -920,8 +961,8 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
         try {
-            // InternalPlayMorphiaModel.g:369:45: (iv_ruleType= ruleType EOF )
-            // InternalPlayMorphiaModel.g:370:2: iv_ruleType= ruleType EOF
+            // InternalPlayMorphiaModel.g:385:45: (iv_ruleType= ruleType EOF )
+            // InternalPlayMorphiaModel.g:386:2: iv_ruleType= ruleType EOF
             {
              newCompositeNode(grammarAccess.getTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -948,7 +989,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleType"
-    // InternalPlayMorphiaModel.g:376:1: ruleType returns [EObject current=null] : (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel ) ;
+    // InternalPlayMorphiaModel.g:392:1: ruleType returns [EObject current=null] : (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel ) ;
     public final EObject ruleType() throws RecognitionException {
         EObject current = null;
 
@@ -961,28 +1002,28 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
         	enterRule();
 
         try {
-            // InternalPlayMorphiaModel.g:382:2: ( (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel ) )
-            // InternalPlayMorphiaModel.g:383:2: (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel )
+            // InternalPlayMorphiaModel.g:398:2: ( (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel ) )
+            // InternalPlayMorphiaModel.g:399:2: (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel )
             {
-            // InternalPlayMorphiaModel.g:383:2: (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel )
-            int alt7=2;
-            int LA7_0 = input.LA(1);
+            // InternalPlayMorphiaModel.g:399:2: (this_DataType_0= ruleDataType | this_MorphiaModel_1= ruleMorphiaModel )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA7_0==17) ) {
-                alt7=1;
+            if ( (LA8_0==18) ) {
+                alt8=1;
             }
-            else if ( (LA7_0==14) ) {
-                alt7=2;
+            else if ( (LA8_0==14) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 7, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt7) {
+            switch (alt8) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:384:3: this_DataType_0= ruleDataType
+                    // InternalPlayMorphiaModel.g:400:3: this_DataType_0= ruleDataType
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getDataTypeParserRuleCall_0());
@@ -1000,7 +1041,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
                     }
                     break;
                 case 2 :
-                    // InternalPlayMorphiaModel.g:393:3: this_MorphiaModel_1= ruleMorphiaModel
+                    // InternalPlayMorphiaModel.g:409:3: this_MorphiaModel_1= ruleMorphiaModel
                     {
 
                     			newCompositeNode(grammarAccess.getTypeAccess().getMorphiaModelParserRuleCall_1());
@@ -1040,7 +1081,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "entryRuleDataType"
-    // InternalPlayMorphiaModel.g:405:1: entryRuleDataType returns [EObject current=null] : iv_ruleDataType= ruleDataType EOF ;
+    // InternalPlayMorphiaModel.g:421:1: entryRuleDataType returns [EObject current=null] : iv_ruleDataType= ruleDataType EOF ;
     public final EObject entryRuleDataType() throws RecognitionException {
         EObject current = null;
 
@@ -1048,8 +1089,8 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
         try {
-            // InternalPlayMorphiaModel.g:405:49: (iv_ruleDataType= ruleDataType EOF )
-            // InternalPlayMorphiaModel.g:406:2: iv_ruleDataType= ruleDataType EOF
+            // InternalPlayMorphiaModel.g:421:49: (iv_ruleDataType= ruleDataType EOF )
+            // InternalPlayMorphiaModel.g:422:2: iv_ruleDataType= ruleDataType EOF
             {
              newCompositeNode(grammarAccess.getDataTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -1076,7 +1117,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleDataType"
-    // InternalPlayMorphiaModel.g:412:1: ruleDataType returns [EObject current=null] : (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) ) ;
+    // InternalPlayMorphiaModel.g:428:1: ruleDataType returns [EObject current=null] : (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) ) ;
     public final EObject ruleDataType() throws RecognitionException {
         EObject current = null;
 
@@ -1087,21 +1128,21 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
         	enterRule();
 
         try {
-            // InternalPlayMorphiaModel.g:418:2: ( (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) ) )
-            // InternalPlayMorphiaModel.g:419:2: (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalPlayMorphiaModel.g:434:2: ( (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) ) )
+            // InternalPlayMorphiaModel.g:435:2: (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) )
             {
-            // InternalPlayMorphiaModel.g:419:2: (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) )
-            // InternalPlayMorphiaModel.g:420:3: otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) )
+            // InternalPlayMorphiaModel.g:435:2: (otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) ) )
+            // InternalPlayMorphiaModel.g:436:3: otherlv_0= 'datatype' ( (lv_name_1_0= RULE_ID ) )
             {
-            otherlv_0=(Token)match(input,17,FOLLOW_4); 
+            otherlv_0=(Token)match(input,18,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDataTypeAccess().getDatatypeKeyword_0());
             		
-            // InternalPlayMorphiaModel.g:424:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalPlayMorphiaModel.g:425:4: (lv_name_1_0= RULE_ID )
+            // InternalPlayMorphiaModel.g:440:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalPlayMorphiaModel.g:441:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:425:4: (lv_name_1_0= RULE_ID )
-            // InternalPlayMorphiaModel.g:426:5: lv_name_1_0= RULE_ID
+            // InternalPlayMorphiaModel.g:441:4: (lv_name_1_0= RULE_ID )
+            // InternalPlayMorphiaModel.g:442:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1146,7 +1187,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "entryRuleImport"
-    // InternalPlayMorphiaModel.g:446:1: entryRuleImport returns [EObject current=null] : iv_ruleImport= ruleImport EOF ;
+    // InternalPlayMorphiaModel.g:462:1: entryRuleImport returns [EObject current=null] : iv_ruleImport= ruleImport EOF ;
     public final EObject entryRuleImport() throws RecognitionException {
         EObject current = null;
 
@@ -1154,8 +1195,8 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
         try {
-            // InternalPlayMorphiaModel.g:446:47: (iv_ruleImport= ruleImport EOF )
-            // InternalPlayMorphiaModel.g:447:2: iv_ruleImport= ruleImport EOF
+            // InternalPlayMorphiaModel.g:462:47: (iv_ruleImport= ruleImport EOF )
+            // InternalPlayMorphiaModel.g:463:2: iv_ruleImport= ruleImport EOF
             {
              newCompositeNode(grammarAccess.getImportRule()); 
             pushFollow(FOLLOW_1);
@@ -1182,7 +1223,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleImport"
-    // InternalPlayMorphiaModel.g:453:1: ruleImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) ) ;
+    // InternalPlayMorphiaModel.g:469:1: ruleImport returns [EObject current=null] : (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) ) ;
     public final EObject ruleImport() throws RecognitionException {
         EObject current = null;
 
@@ -1194,21 +1235,21 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
         	enterRule();
 
         try {
-            // InternalPlayMorphiaModel.g:459:2: ( (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) ) )
-            // InternalPlayMorphiaModel.g:460:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
+            // InternalPlayMorphiaModel.g:475:2: ( (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) ) )
+            // InternalPlayMorphiaModel.g:476:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
             {
-            // InternalPlayMorphiaModel.g:460:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
-            // InternalPlayMorphiaModel.g:461:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
+            // InternalPlayMorphiaModel.g:476:2: (otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) ) )
+            // InternalPlayMorphiaModel.g:477:3: otherlv_0= 'import' ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
             {
-            otherlv_0=(Token)match(input,18,FOLLOW_4); 
+            otherlv_0=(Token)match(input,19,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getImportAccess().getImportKeyword_0());
             		
-            // InternalPlayMorphiaModel.g:465:3: ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
-            // InternalPlayMorphiaModel.g:466:4: (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard )
+            // InternalPlayMorphiaModel.g:481:3: ( (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard ) )
+            // InternalPlayMorphiaModel.g:482:4: (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard )
             {
-            // InternalPlayMorphiaModel.g:466:4: (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard )
-            // InternalPlayMorphiaModel.g:467:5: lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard
+            // InternalPlayMorphiaModel.g:482:4: (lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard )
+            // InternalPlayMorphiaModel.g:483:5: lv_importedNamespace_1_0= ruleQualifiedNameWithWildcard
             {
 
             					newCompositeNode(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0());
@@ -1258,7 +1299,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "entryRuleQualifiedNameWithWildcard"
-    // InternalPlayMorphiaModel.g:488:1: entryRuleQualifiedNameWithWildcard returns [String current=null] : iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF ;
+    // InternalPlayMorphiaModel.g:504:1: entryRuleQualifiedNameWithWildcard returns [String current=null] : iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF ;
     public final String entryRuleQualifiedNameWithWildcard() throws RecognitionException {
         String current = null;
 
@@ -1266,8 +1307,8 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
         try {
-            // InternalPlayMorphiaModel.g:488:65: (iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF )
-            // InternalPlayMorphiaModel.g:489:2: iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF
+            // InternalPlayMorphiaModel.g:504:65: (iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF )
+            // InternalPlayMorphiaModel.g:505:2: iv_ruleQualifiedNameWithWildcard= ruleQualifiedNameWithWildcard EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameWithWildcardRule()); 
             pushFollow(FOLLOW_1);
@@ -1294,7 +1335,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleQualifiedNameWithWildcard"
-    // InternalPlayMorphiaModel.g:495:1: ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) ;
+    // InternalPlayMorphiaModel.g:511:1: ruleQualifiedNameWithWildcard returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedNameWithWildcard() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1306,16 +1347,16 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
         	enterRule();
 
         try {
-            // InternalPlayMorphiaModel.g:501:2: ( (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) )
-            // InternalPlayMorphiaModel.g:502:2: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
+            // InternalPlayMorphiaModel.g:517:2: ( (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? ) )
+            // InternalPlayMorphiaModel.g:518:2: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
             {
-            // InternalPlayMorphiaModel.g:502:2: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
-            // InternalPlayMorphiaModel.g:503:3: this_QualifiedName_0= ruleQualifiedName (kw= '.*' )?
+            // InternalPlayMorphiaModel.g:518:2: (this_QualifiedName_0= ruleQualifiedName (kw= '.*' )? )
+            // InternalPlayMorphiaModel.g:519:3: this_QualifiedName_0= ruleQualifiedName (kw= '.*' )?
             {
 
             			newCompositeNode(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0());
             		
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_11);
             this_QualifiedName_0=ruleQualifiedName();
 
             state._fsp--;
@@ -1326,18 +1367,18 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
             			afterParserOrEnumRuleCall();
             		
-            // InternalPlayMorphiaModel.g:513:3: (kw= '.*' )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalPlayMorphiaModel.g:529:3: (kw= '.*' )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==19) ) {
-                alt8=1;
+            if ( (LA9_0==20) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:514:4: kw= '.*'
+                    // InternalPlayMorphiaModel.g:530:4: kw= '.*'
                     {
-                    kw=(Token)match(input,19,FOLLOW_2); 
+                    kw=(Token)match(input,20,FOLLOW_2); 
 
                     				current.merge(kw);
                     				newLeafNode(kw, grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1());
@@ -1371,7 +1412,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "entryRuleQualifiedName"
-    // InternalPlayMorphiaModel.g:524:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    // InternalPlayMorphiaModel.g:540:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
     public final String entryRuleQualifiedName() throws RecognitionException {
         String current = null;
 
@@ -1379,8 +1420,8 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
         try {
-            // InternalPlayMorphiaModel.g:524:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
-            // InternalPlayMorphiaModel.g:525:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            // InternalPlayMorphiaModel.g:540:53: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // InternalPlayMorphiaModel.g:541:2: iv_ruleQualifiedName= ruleQualifiedName EOF
             {
              newCompositeNode(grammarAccess.getQualifiedNameRule()); 
             pushFollow(FOLLOW_1);
@@ -1407,7 +1448,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
 
     // $ANTLR start "ruleQualifiedName"
-    // InternalPlayMorphiaModel.g:531:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    // InternalPlayMorphiaModel.g:547:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
     public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -1419,40 +1460,40 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
         	enterRule();
 
         try {
-            // InternalPlayMorphiaModel.g:537:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
-            // InternalPlayMorphiaModel.g:538:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalPlayMorphiaModel.g:553:2: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // InternalPlayMorphiaModel.g:554:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
             {
-            // InternalPlayMorphiaModel.g:538:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
-            // InternalPlayMorphiaModel.g:539:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            // InternalPlayMorphiaModel.g:554:2: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // InternalPlayMorphiaModel.g:555:3: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_11); 
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             			current.merge(this_ID_0);
             		
 
             			newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0());
             		
-            // InternalPlayMorphiaModel.g:546:3: (kw= '.' this_ID_2= RULE_ID )*
-            loop9:
+            // InternalPlayMorphiaModel.g:562:3: (kw= '.' this_ID_2= RULE_ID )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==20) ) {
-                    alt9=1;
+                if ( (LA10_0==21) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalPlayMorphiaModel.g:547:4: kw= '.' this_ID_2= RULE_ID
+            	    // InternalPlayMorphiaModel.g:563:4: kw= '.' this_ID_2= RULE_ID
             	    {
-            	    kw=(Token)match(input,20,FOLLOW_4); 
+            	    kw=(Token)match(input,21,FOLLOW_4); 
 
             	    				current.merge(kw);
             	    				newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0());
             	    			
-            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_11); 
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             	    				current.merge(this_ID_2);
             	    			
@@ -1464,7 +1505,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -1496,14 +1537,15 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalAntlrParser 
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000064802L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000000000C4802L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000066800L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000006E810L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x00000000000C6800L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000000CE810L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000000000A010L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000200002L});
 
 }

@@ -315,23 +315,39 @@ ruleAttribute returns [EObject current=null]
 	(
 		(
 			(
-				lv_many_0_0='many'
-				{
-					newLeafNode(lv_many_0_0, grammarAccess.getAttributeAccess().getManyManyKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAttributeRule());
+				(
+					lv_many_0_0='many'
+					{
+						newLeafNode(lv_many_0_0, grammarAccess.getAttributeAccess().getManyManyKeyword_0_0_0());
 					}
-					setWithLastConsumed($current, "many", true, "many");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAttributeRule());
+						}
+						setWithLastConsumed($current, "many", true, "many");
+					}
+				)
 			)
+			(
+				(
+					lv_embedded_1_0='embedded'
+					{
+						newLeafNode(lv_embedded_1_0, grammarAccess.getAttributeAccess().getEmbeddedEmbeddedKeyword_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAttributeRule());
+						}
+						setWithLastConsumed($current, "embedded", true, "embedded");
+					}
+				)
+			)?
 		)?
 		(
 			(
-				lv_name_1_0=RULE_ID
+				lv_name_2_0=RULE_ID
 				{
-					newLeafNode(lv_name_1_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_2_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -340,14 +356,14 @@ ruleAttribute returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"name",
-						lv_name_1_0,
+						lv_name_2_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
 		)
-		otherlv_2=':'
+		otherlv_3=':'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getAttributeAccess().getColonKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getColonKeyword_2());
 		}
 		(
 			(
@@ -356,9 +372,9 @@ ruleAttribute returns [EObject current=null]
 						$current = createModelElement(grammarAccess.getAttributeRule());
 					}
 				}
-				otherlv_3=RULE_ID
+				otherlv_4=RULE_ID
 				{
-					newLeafNode(otherlv_3, grammarAccess.getAttributeAccess().getTypeTypeCrossReference_3_0());
+					newLeafNode(otherlv_4, grammarAccess.getAttributeAccess().getTypeTypeCrossReference_3_0());
 				}
 			)
 		)

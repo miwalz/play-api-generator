@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AttributeImpl#isMany <em>Many</em>}</li>
+ *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AttributeImpl#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AttributeImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.AttributeImpl#getType <em>Type</em>}</li>
  * </ul>
@@ -51,6 +52,26 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @ordered
    */
   protected boolean many = MANY_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isEmbedded() <em>Embedded</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEmbedded()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean EMBEDDED_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isEmbedded() <em>Embedded</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isEmbedded()
+   * @generated
+   * @ordered
+   */
+  protected boolean embedded = EMBEDDED_EDEFAULT;
 
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -131,6 +152,29 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isEmbedded()
+  {
+    return embedded;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEmbedded(boolean newEmbedded)
+  {
+    boolean oldEmbedded = embedded;
+    embedded = newEmbedded;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PlayMorphiaModelPackage.ATTRIBUTE__EMBEDDED, oldEmbedded, embedded));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getName()
   {
     return name;
@@ -204,6 +248,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case PlayMorphiaModelPackage.ATTRIBUTE__MANY:
         return isMany();
+      case PlayMorphiaModelPackage.ATTRIBUTE__EMBEDDED:
+        return isEmbedded();
       case PlayMorphiaModelPackage.ATTRIBUTE__NAME:
         return getName();
       case PlayMorphiaModelPackage.ATTRIBUTE__TYPE:
@@ -225,6 +271,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case PlayMorphiaModelPackage.ATTRIBUTE__MANY:
         setMany((Boolean)newValue);
+        return;
+      case PlayMorphiaModelPackage.ATTRIBUTE__EMBEDDED:
+        setEmbedded((Boolean)newValue);
         return;
       case PlayMorphiaModelPackage.ATTRIBUTE__NAME:
         setName((String)newValue);
@@ -249,6 +298,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case PlayMorphiaModelPackage.ATTRIBUTE__MANY:
         setMany(MANY_EDEFAULT);
         return;
+      case PlayMorphiaModelPackage.ATTRIBUTE__EMBEDDED:
+        setEmbedded(EMBEDDED_EDEFAULT);
+        return;
       case PlayMorphiaModelPackage.ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -271,6 +323,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     {
       case PlayMorphiaModelPackage.ATTRIBUTE__MANY:
         return many != MANY_EDEFAULT;
+      case PlayMorphiaModelPackage.ATTRIBUTE__EMBEDDED:
+        return embedded != EMBEDDED_EDEFAULT;
       case PlayMorphiaModelPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case PlayMorphiaModelPackage.ATTRIBUTE__TYPE:
@@ -292,6 +346,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (many: ");
     result.append(many);
+    result.append(", embedded: ");
+    result.append(embedded);
     result.append(", name: ");
     result.append(name);
     result.append(')');

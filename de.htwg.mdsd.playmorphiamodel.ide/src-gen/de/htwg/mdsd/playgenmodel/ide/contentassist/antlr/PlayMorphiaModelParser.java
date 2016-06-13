@@ -40,6 +40,7 @@ public class PlayMorphiaModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPackageDeclarationAccess().getGroup(), "rule__PackageDeclaration__Group__0");
 					put(grammarAccess.getMorphiaModelAccess().getGroup(), "rule__MorphiaModel__Group__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
+					put(grammarAccess.getAttributeAccess().getGroup_0(), "rule__Attribute__Group_0__0");
 					put(grammarAccess.getDataTypeAccess().getGroup(), "rule__DataType__Group__0");
 					put(grammarAccess.getImportAccess().getGroup(), "rule__Import__Group__0");
 					put(grammarAccess.getQualifiedNameWithWildcardAccess().getGroup(), "rule__QualifiedNameWithWildcard__Group__0");
@@ -51,7 +52,8 @@ public class PlayMorphiaModelParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMorphiaModelAccess().getNameAssignment_1(), "rule__MorphiaModel__NameAssignment_1");
 					put(grammarAccess.getMorphiaModelAccess().getImportsAssignment_3(), "rule__MorphiaModel__ImportsAssignment_3");
 					put(grammarAccess.getMorphiaModelAccess().getAttributesAssignment_4(), "rule__MorphiaModel__AttributesAssignment_4");
-					put(grammarAccess.getAttributeAccess().getManyAssignment_0(), "rule__Attribute__ManyAssignment_0");
+					put(grammarAccess.getAttributeAccess().getManyAssignment_0_0(), "rule__Attribute__ManyAssignment_0_0");
+					put(grammarAccess.getAttributeAccess().getEmbeddedAssignment_0_1(), "rule__Attribute__EmbeddedAssignment_0_1");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
 					put(grammarAccess.getAttributeAccess().getTypeAssignment_3(), "rule__Attribute__TypeAssignment_3");
 					put(grammarAccess.getDataTypeAccess().getNameAssignment_1(), "rule__DataType__NameAssignment_1");

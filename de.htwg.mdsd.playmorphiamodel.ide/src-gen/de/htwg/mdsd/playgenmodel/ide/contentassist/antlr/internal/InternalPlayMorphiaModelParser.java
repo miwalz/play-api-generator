@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'morphiamodel'", "':'", "'datatype'", "'import'", "'.*'", "'.'", "'many'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'morphiamodel'", "':'", "'datatype'", "'import'", "'.*'", "'.'", "'many'", "'embedded'"
     };
     public static final int RULE_STRING=6;
     public static final int RULE_SL_COMMENT=8;
@@ -42,6 +42,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
     public static final int RULE_INT=5;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -2011,20 +2012,20 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Attribute__Group__0__Impl"
-    // InternalPlayMorphiaModel.g:659:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__ManyAssignment_0 )? ) ;
+    // InternalPlayMorphiaModel.g:659:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__Group_0__0 )? ) ;
     public final void rule__Attribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:663:1: ( ( ( rule__Attribute__ManyAssignment_0 )? ) )
-            // InternalPlayMorphiaModel.g:664:1: ( ( rule__Attribute__ManyAssignment_0 )? )
+            // InternalPlayMorphiaModel.g:663:1: ( ( ( rule__Attribute__Group_0__0 )? ) )
+            // InternalPlayMorphiaModel.g:664:1: ( ( rule__Attribute__Group_0__0 )? )
             {
-            // InternalPlayMorphiaModel.g:664:1: ( ( rule__Attribute__ManyAssignment_0 )? )
-            // InternalPlayMorphiaModel.g:665:2: ( rule__Attribute__ManyAssignment_0 )?
+            // InternalPlayMorphiaModel.g:664:1: ( ( rule__Attribute__Group_0__0 )? )
+            // InternalPlayMorphiaModel.g:665:2: ( rule__Attribute__Group_0__0 )?
             {
-             before(grammarAccess.getAttributeAccess().getManyAssignment_0()); 
-            // InternalPlayMorphiaModel.g:666:2: ( rule__Attribute__ManyAssignment_0 )?
+             before(grammarAccess.getAttributeAccess().getGroup_0()); 
+            // InternalPlayMorphiaModel.g:666:2: ( rule__Attribute__Group_0__0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2033,10 +2034,10 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
             }
             switch (alt7) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:666:3: rule__Attribute__ManyAssignment_0
+                    // InternalPlayMorphiaModel.g:666:3: rule__Attribute__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__Attribute__ManyAssignment_0();
+                    rule__Attribute__Group_0__0();
 
                     state._fsp--;
 
@@ -2046,7 +2047,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
             }
 
-             after(grammarAccess.getAttributeAccess().getManyAssignment_0()); 
+             after(grammarAccess.getAttributeAccess().getGroup_0()); 
 
             }
 
@@ -2308,15 +2309,191 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__Attribute__Group__3__Impl"
 
 
+    // $ANTLR start "rule__Attribute__Group_0__0"
+    // InternalPlayMorphiaModel.g:755:1: rule__Attribute__Group_0__0 : rule__Attribute__Group_0__0__Impl rule__Attribute__Group_0__1 ;
+    public final void rule__Attribute__Group_0__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPlayMorphiaModel.g:759:1: ( rule__Attribute__Group_0__0__Impl rule__Attribute__Group_0__1 )
+            // InternalPlayMorphiaModel.g:760:2: rule__Attribute__Group_0__0__Impl rule__Attribute__Group_0__1
+            {
+            pushFollow(FOLLOW_11);
+            rule__Attribute__Group_0__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Attribute__Group_0__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__Group_0__0"
+
+
+    // $ANTLR start "rule__Attribute__Group_0__0__Impl"
+    // InternalPlayMorphiaModel.g:767:1: rule__Attribute__Group_0__0__Impl : ( ( rule__Attribute__ManyAssignment_0_0 ) ) ;
+    public final void rule__Attribute__Group_0__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPlayMorphiaModel.g:771:1: ( ( ( rule__Attribute__ManyAssignment_0_0 ) ) )
+            // InternalPlayMorphiaModel.g:772:1: ( ( rule__Attribute__ManyAssignment_0_0 ) )
+            {
+            // InternalPlayMorphiaModel.g:772:1: ( ( rule__Attribute__ManyAssignment_0_0 ) )
+            // InternalPlayMorphiaModel.g:773:2: ( rule__Attribute__ManyAssignment_0_0 )
+            {
+             before(grammarAccess.getAttributeAccess().getManyAssignment_0_0()); 
+            // InternalPlayMorphiaModel.g:774:2: ( rule__Attribute__ManyAssignment_0_0 )
+            // InternalPlayMorphiaModel.g:774:3: rule__Attribute__ManyAssignment_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Attribute__ManyAssignment_0_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getAttributeAccess().getManyAssignment_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__Group_0__0__Impl"
+
+
+    // $ANTLR start "rule__Attribute__Group_0__1"
+    // InternalPlayMorphiaModel.g:782:1: rule__Attribute__Group_0__1 : rule__Attribute__Group_0__1__Impl ;
+    public final void rule__Attribute__Group_0__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPlayMorphiaModel.g:786:1: ( rule__Attribute__Group_0__1__Impl )
+            // InternalPlayMorphiaModel.g:787:2: rule__Attribute__Group_0__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Attribute__Group_0__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__Group_0__1"
+
+
+    // $ANTLR start "rule__Attribute__Group_0__1__Impl"
+    // InternalPlayMorphiaModel.g:793:1: rule__Attribute__Group_0__1__Impl : ( ( rule__Attribute__EmbeddedAssignment_0_1 )? ) ;
+    public final void rule__Attribute__Group_0__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPlayMorphiaModel.g:797:1: ( ( ( rule__Attribute__EmbeddedAssignment_0_1 )? ) )
+            // InternalPlayMorphiaModel.g:798:1: ( ( rule__Attribute__EmbeddedAssignment_0_1 )? )
+            {
+            // InternalPlayMorphiaModel.g:798:1: ( ( rule__Attribute__EmbeddedAssignment_0_1 )? )
+            // InternalPlayMorphiaModel.g:799:2: ( rule__Attribute__EmbeddedAssignment_0_1 )?
+            {
+             before(grammarAccess.getAttributeAccess().getEmbeddedAssignment_0_1()); 
+            // InternalPlayMorphiaModel.g:800:2: ( rule__Attribute__EmbeddedAssignment_0_1 )?
+            int alt8=2;
+            int LA8_0 = input.LA(1);
+
+            if ( (LA8_0==21) ) {
+                alt8=1;
+            }
+            switch (alt8) {
+                case 1 :
+                    // InternalPlayMorphiaModel.g:800:3: rule__Attribute__EmbeddedAssignment_0_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Attribute__EmbeddedAssignment_0_1();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getAttributeAccess().getEmbeddedAssignment_0_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__Group_0__1__Impl"
+
+
     // $ANTLR start "rule__DataType__Group__0"
-    // InternalPlayMorphiaModel.g:755:1: rule__DataType__Group__0 : rule__DataType__Group__0__Impl rule__DataType__Group__1 ;
+    // InternalPlayMorphiaModel.g:809:1: rule__DataType__Group__0 : rule__DataType__Group__0__Impl rule__DataType__Group__1 ;
     public final void rule__DataType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:759:1: ( rule__DataType__Group__0__Impl rule__DataType__Group__1 )
-            // InternalPlayMorphiaModel.g:760:2: rule__DataType__Group__0__Impl rule__DataType__Group__1
+            // InternalPlayMorphiaModel.g:813:1: ( rule__DataType__Group__0__Impl rule__DataType__Group__1 )
+            // InternalPlayMorphiaModel.g:814:2: rule__DataType__Group__0__Impl rule__DataType__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__DataType__Group__0__Impl();
@@ -2347,17 +2524,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__DataType__Group__0__Impl"
-    // InternalPlayMorphiaModel.g:767:1: rule__DataType__Group__0__Impl : ( 'datatype' ) ;
+    // InternalPlayMorphiaModel.g:821:1: rule__DataType__Group__0__Impl : ( 'datatype' ) ;
     public final void rule__DataType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:771:1: ( ( 'datatype' ) )
-            // InternalPlayMorphiaModel.g:772:1: ( 'datatype' )
+            // InternalPlayMorphiaModel.g:825:1: ( ( 'datatype' ) )
+            // InternalPlayMorphiaModel.g:826:1: ( 'datatype' )
             {
-            // InternalPlayMorphiaModel.g:772:1: ( 'datatype' )
-            // InternalPlayMorphiaModel.g:773:2: 'datatype'
+            // InternalPlayMorphiaModel.g:826:1: ( 'datatype' )
+            // InternalPlayMorphiaModel.g:827:2: 'datatype'
             {
              before(grammarAccess.getDataTypeAccess().getDatatypeKeyword_0()); 
             match(input,16,FOLLOW_2); 
@@ -2384,14 +2561,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__DataType__Group__1"
-    // InternalPlayMorphiaModel.g:782:1: rule__DataType__Group__1 : rule__DataType__Group__1__Impl ;
+    // InternalPlayMorphiaModel.g:836:1: rule__DataType__Group__1 : rule__DataType__Group__1__Impl ;
     public final void rule__DataType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:786:1: ( rule__DataType__Group__1__Impl )
-            // InternalPlayMorphiaModel.g:787:2: rule__DataType__Group__1__Impl
+            // InternalPlayMorphiaModel.g:840:1: ( rule__DataType__Group__1__Impl )
+            // InternalPlayMorphiaModel.g:841:2: rule__DataType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataType__Group__1__Impl();
@@ -2417,21 +2594,21 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__DataType__Group__1__Impl"
-    // InternalPlayMorphiaModel.g:793:1: rule__DataType__Group__1__Impl : ( ( rule__DataType__NameAssignment_1 ) ) ;
+    // InternalPlayMorphiaModel.g:847:1: rule__DataType__Group__1__Impl : ( ( rule__DataType__NameAssignment_1 ) ) ;
     public final void rule__DataType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:797:1: ( ( ( rule__DataType__NameAssignment_1 ) ) )
-            // InternalPlayMorphiaModel.g:798:1: ( ( rule__DataType__NameAssignment_1 ) )
+            // InternalPlayMorphiaModel.g:851:1: ( ( ( rule__DataType__NameAssignment_1 ) ) )
+            // InternalPlayMorphiaModel.g:852:1: ( ( rule__DataType__NameAssignment_1 ) )
             {
-            // InternalPlayMorphiaModel.g:798:1: ( ( rule__DataType__NameAssignment_1 ) )
-            // InternalPlayMorphiaModel.g:799:2: ( rule__DataType__NameAssignment_1 )
+            // InternalPlayMorphiaModel.g:852:1: ( ( rule__DataType__NameAssignment_1 ) )
+            // InternalPlayMorphiaModel.g:853:2: ( rule__DataType__NameAssignment_1 )
             {
              before(grammarAccess.getDataTypeAccess().getNameAssignment_1()); 
-            // InternalPlayMorphiaModel.g:800:2: ( rule__DataType__NameAssignment_1 )
-            // InternalPlayMorphiaModel.g:800:3: rule__DataType__NameAssignment_1
+            // InternalPlayMorphiaModel.g:854:2: ( rule__DataType__NameAssignment_1 )
+            // InternalPlayMorphiaModel.g:854:3: rule__DataType__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DataType__NameAssignment_1();
@@ -2464,14 +2641,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Import__Group__0"
-    // InternalPlayMorphiaModel.g:809:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
+    // InternalPlayMorphiaModel.g:863:1: rule__Import__Group__0 : rule__Import__Group__0__Impl rule__Import__Group__1 ;
     public final void rule__Import__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:813:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
-            // InternalPlayMorphiaModel.g:814:2: rule__Import__Group__0__Impl rule__Import__Group__1
+            // InternalPlayMorphiaModel.g:867:1: ( rule__Import__Group__0__Impl rule__Import__Group__1 )
+            // InternalPlayMorphiaModel.g:868:2: rule__Import__Group__0__Impl rule__Import__Group__1
             {
             pushFollow(FOLLOW_4);
             rule__Import__Group__0__Impl();
@@ -2502,17 +2679,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Import__Group__0__Impl"
-    // InternalPlayMorphiaModel.g:821:1: rule__Import__Group__0__Impl : ( 'import' ) ;
+    // InternalPlayMorphiaModel.g:875:1: rule__Import__Group__0__Impl : ( 'import' ) ;
     public final void rule__Import__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:825:1: ( ( 'import' ) )
-            // InternalPlayMorphiaModel.g:826:1: ( 'import' )
+            // InternalPlayMorphiaModel.g:879:1: ( ( 'import' ) )
+            // InternalPlayMorphiaModel.g:880:1: ( 'import' )
             {
-            // InternalPlayMorphiaModel.g:826:1: ( 'import' )
-            // InternalPlayMorphiaModel.g:827:2: 'import'
+            // InternalPlayMorphiaModel.g:880:1: ( 'import' )
+            // InternalPlayMorphiaModel.g:881:2: 'import'
             {
              before(grammarAccess.getImportAccess().getImportKeyword_0()); 
             match(input,17,FOLLOW_2); 
@@ -2539,14 +2716,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Import__Group__1"
-    // InternalPlayMorphiaModel.g:836:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
+    // InternalPlayMorphiaModel.g:890:1: rule__Import__Group__1 : rule__Import__Group__1__Impl ;
     public final void rule__Import__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:840:1: ( rule__Import__Group__1__Impl )
-            // InternalPlayMorphiaModel.g:841:2: rule__Import__Group__1__Impl
+            // InternalPlayMorphiaModel.g:894:1: ( rule__Import__Group__1__Impl )
+            // InternalPlayMorphiaModel.g:895:2: rule__Import__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Import__Group__1__Impl();
@@ -2572,21 +2749,21 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Import__Group__1__Impl"
-    // InternalPlayMorphiaModel.g:847:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) ;
+    // InternalPlayMorphiaModel.g:901:1: rule__Import__Group__1__Impl : ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) ;
     public final void rule__Import__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:851:1: ( ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) )
-            // InternalPlayMorphiaModel.g:852:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
+            // InternalPlayMorphiaModel.g:905:1: ( ( ( rule__Import__ImportedNamespaceAssignment_1 ) ) )
+            // InternalPlayMorphiaModel.g:906:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
             {
-            // InternalPlayMorphiaModel.g:852:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
-            // InternalPlayMorphiaModel.g:853:2: ( rule__Import__ImportedNamespaceAssignment_1 )
+            // InternalPlayMorphiaModel.g:906:1: ( ( rule__Import__ImportedNamespaceAssignment_1 ) )
+            // InternalPlayMorphiaModel.g:907:2: ( rule__Import__ImportedNamespaceAssignment_1 )
             {
              before(grammarAccess.getImportAccess().getImportedNamespaceAssignment_1()); 
-            // InternalPlayMorphiaModel.g:854:2: ( rule__Import__ImportedNamespaceAssignment_1 )
-            // InternalPlayMorphiaModel.g:854:3: rule__Import__ImportedNamespaceAssignment_1
+            // InternalPlayMorphiaModel.g:908:2: ( rule__Import__ImportedNamespaceAssignment_1 )
+            // InternalPlayMorphiaModel.g:908:3: rule__Import__ImportedNamespaceAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Import__ImportedNamespaceAssignment_1();
@@ -2619,16 +2796,16 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__0"
-    // InternalPlayMorphiaModel.g:863:1: rule__QualifiedNameWithWildcard__Group__0 : rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 ;
+    // InternalPlayMorphiaModel.g:917:1: rule__QualifiedNameWithWildcard__Group__0 : rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 ;
     public final void rule__QualifiedNameWithWildcard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:867:1: ( rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 )
-            // InternalPlayMorphiaModel.g:868:2: rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1
+            // InternalPlayMorphiaModel.g:921:1: ( rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1 )
+            // InternalPlayMorphiaModel.g:922:2: rule__QualifiedNameWithWildcard__Group__0__Impl rule__QualifiedNameWithWildcard__Group__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_12);
             rule__QualifiedNameWithWildcard__Group__0__Impl();
 
             state._fsp--;
@@ -2657,17 +2834,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__0__Impl"
-    // InternalPlayMorphiaModel.g:875:1: rule__QualifiedNameWithWildcard__Group__0__Impl : ( ruleQualifiedName ) ;
+    // InternalPlayMorphiaModel.g:929:1: rule__QualifiedNameWithWildcard__Group__0__Impl : ( ruleQualifiedName ) ;
     public final void rule__QualifiedNameWithWildcard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:879:1: ( ( ruleQualifiedName ) )
-            // InternalPlayMorphiaModel.g:880:1: ( ruleQualifiedName )
+            // InternalPlayMorphiaModel.g:933:1: ( ( ruleQualifiedName ) )
+            // InternalPlayMorphiaModel.g:934:1: ( ruleQualifiedName )
             {
-            // InternalPlayMorphiaModel.g:880:1: ( ruleQualifiedName )
-            // InternalPlayMorphiaModel.g:881:2: ruleQualifiedName
+            // InternalPlayMorphiaModel.g:934:1: ( ruleQualifiedName )
+            // InternalPlayMorphiaModel.g:935:2: ruleQualifiedName
             {
              before(grammarAccess.getQualifiedNameWithWildcardAccess().getQualifiedNameParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -2698,14 +2875,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__1"
-    // InternalPlayMorphiaModel.g:890:1: rule__QualifiedNameWithWildcard__Group__1 : rule__QualifiedNameWithWildcard__Group__1__Impl ;
+    // InternalPlayMorphiaModel.g:944:1: rule__QualifiedNameWithWildcard__Group__1 : rule__QualifiedNameWithWildcard__Group__1__Impl ;
     public final void rule__QualifiedNameWithWildcard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:894:1: ( rule__QualifiedNameWithWildcard__Group__1__Impl )
-            // InternalPlayMorphiaModel.g:895:2: rule__QualifiedNameWithWildcard__Group__1__Impl
+            // InternalPlayMorphiaModel.g:948:1: ( rule__QualifiedNameWithWildcard__Group__1__Impl )
+            // InternalPlayMorphiaModel.g:949:2: rule__QualifiedNameWithWildcard__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedNameWithWildcard__Group__1__Impl();
@@ -2731,29 +2908,29 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedNameWithWildcard__Group__1__Impl"
-    // InternalPlayMorphiaModel.g:901:1: rule__QualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
+    // InternalPlayMorphiaModel.g:955:1: rule__QualifiedNameWithWildcard__Group__1__Impl : ( ( '.*' )? ) ;
     public final void rule__QualifiedNameWithWildcard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:905:1: ( ( ( '.*' )? ) )
-            // InternalPlayMorphiaModel.g:906:1: ( ( '.*' )? )
+            // InternalPlayMorphiaModel.g:959:1: ( ( ( '.*' )? ) )
+            // InternalPlayMorphiaModel.g:960:1: ( ( '.*' )? )
             {
-            // InternalPlayMorphiaModel.g:906:1: ( ( '.*' )? )
-            // InternalPlayMorphiaModel.g:907:2: ( '.*' )?
+            // InternalPlayMorphiaModel.g:960:1: ( ( '.*' )? )
+            // InternalPlayMorphiaModel.g:961:2: ( '.*' )?
             {
              before(grammarAccess.getQualifiedNameWithWildcardAccess().getFullStopAsteriskKeyword_1()); 
-            // InternalPlayMorphiaModel.g:908:2: ( '.*' )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // InternalPlayMorphiaModel.g:962:2: ( '.*' )?
+            int alt9=2;
+            int LA9_0 = input.LA(1);
 
-            if ( (LA8_0==18) ) {
-                alt8=1;
+            if ( (LA9_0==18) ) {
+                alt9=1;
             }
-            switch (alt8) {
+            switch (alt9) {
                 case 1 :
-                    // InternalPlayMorphiaModel.g:908:3: '.*'
+                    // InternalPlayMorphiaModel.g:962:3: '.*'
                     {
                     match(input,18,FOLLOW_2); 
 
@@ -2785,16 +2962,16 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group__0"
-    // InternalPlayMorphiaModel.g:917:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
+    // InternalPlayMorphiaModel.g:971:1: rule__QualifiedName__Group__0 : rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 ;
     public final void rule__QualifiedName__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:921:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
-            // InternalPlayMorphiaModel.g:922:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
+            // InternalPlayMorphiaModel.g:975:1: ( rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1 )
+            // InternalPlayMorphiaModel.g:976:2: rule__QualifiedName__Group__0__Impl rule__QualifiedName__Group__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__QualifiedName__Group__0__Impl();
 
             state._fsp--;
@@ -2823,17 +3000,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group__0__Impl"
-    // InternalPlayMorphiaModel.g:929:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
+    // InternalPlayMorphiaModel.g:983:1: rule__QualifiedName__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:933:1: ( ( RULE_ID ) )
-            // InternalPlayMorphiaModel.g:934:1: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:987:1: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:988:1: ( RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:934:1: ( RULE_ID )
-            // InternalPlayMorphiaModel.g:935:2: RULE_ID
+            // InternalPlayMorphiaModel.g:988:1: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:989:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -2860,14 +3037,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group__1"
-    // InternalPlayMorphiaModel.g:944:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
+    // InternalPlayMorphiaModel.g:998:1: rule__QualifiedName__Group__1 : rule__QualifiedName__Group__1__Impl ;
     public final void rule__QualifiedName__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:948:1: ( rule__QualifiedName__Group__1__Impl )
-            // InternalPlayMorphiaModel.g:949:2: rule__QualifiedName__Group__1__Impl
+            // InternalPlayMorphiaModel.g:1002:1: ( rule__QualifiedName__Group__1__Impl )
+            // InternalPlayMorphiaModel.g:1003:2: rule__QualifiedName__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group__1__Impl();
@@ -2893,35 +3070,35 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group__1__Impl"
-    // InternalPlayMorphiaModel.g:955:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
+    // InternalPlayMorphiaModel.g:1009:1: rule__QualifiedName__Group__1__Impl : ( ( rule__QualifiedName__Group_1__0 )* ) ;
     public final void rule__QualifiedName__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:959:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
-            // InternalPlayMorphiaModel.g:960:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalPlayMorphiaModel.g:1013:1: ( ( ( rule__QualifiedName__Group_1__0 )* ) )
+            // InternalPlayMorphiaModel.g:1014:1: ( ( rule__QualifiedName__Group_1__0 )* )
             {
-            // InternalPlayMorphiaModel.g:960:1: ( ( rule__QualifiedName__Group_1__0 )* )
-            // InternalPlayMorphiaModel.g:961:2: ( rule__QualifiedName__Group_1__0 )*
+            // InternalPlayMorphiaModel.g:1014:1: ( ( rule__QualifiedName__Group_1__0 )* )
+            // InternalPlayMorphiaModel.g:1015:2: ( rule__QualifiedName__Group_1__0 )*
             {
              before(grammarAccess.getQualifiedNameAccess().getGroup_1()); 
-            // InternalPlayMorphiaModel.g:962:2: ( rule__QualifiedName__Group_1__0 )*
-            loop9:
+            // InternalPlayMorphiaModel.g:1016:2: ( rule__QualifiedName__Group_1__0 )*
+            loop10:
             do {
-                int alt9=2;
-                int LA9_0 = input.LA(1);
+                int alt10=2;
+                int LA10_0 = input.LA(1);
 
-                if ( (LA9_0==19) ) {
-                    alt9=1;
+                if ( (LA10_0==19) ) {
+                    alt10=1;
                 }
 
 
-                switch (alt9) {
+                switch (alt10) {
             	case 1 :
-            	    // InternalPlayMorphiaModel.g:962:3: rule__QualifiedName__Group_1__0
+            	    // InternalPlayMorphiaModel.g:1016:3: rule__QualifiedName__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_13);
+            	    pushFollow(FOLLOW_14);
             	    rule__QualifiedName__Group_1__0();
 
             	    state._fsp--;
@@ -2931,7 +3108,7 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop10;
                 }
             } while (true);
 
@@ -2958,14 +3135,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0"
-    // InternalPlayMorphiaModel.g:971:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
+    // InternalPlayMorphiaModel.g:1025:1: rule__QualifiedName__Group_1__0 : rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 ;
     public final void rule__QualifiedName__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:975:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
-            // InternalPlayMorphiaModel.g:976:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
+            // InternalPlayMorphiaModel.g:1029:1: ( rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1 )
+            // InternalPlayMorphiaModel.g:1030:2: rule__QualifiedName__Group_1__0__Impl rule__QualifiedName__Group_1__1
             {
             pushFollow(FOLLOW_4);
             rule__QualifiedName__Group_1__0__Impl();
@@ -2996,17 +3173,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__0__Impl"
-    // InternalPlayMorphiaModel.g:983:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
+    // InternalPlayMorphiaModel.g:1037:1: rule__QualifiedName__Group_1__0__Impl : ( '.' ) ;
     public final void rule__QualifiedName__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:987:1: ( ( '.' ) )
-            // InternalPlayMorphiaModel.g:988:1: ( '.' )
+            // InternalPlayMorphiaModel.g:1041:1: ( ( '.' ) )
+            // InternalPlayMorphiaModel.g:1042:1: ( '.' )
             {
-            // InternalPlayMorphiaModel.g:988:1: ( '.' )
-            // InternalPlayMorphiaModel.g:989:2: '.'
+            // InternalPlayMorphiaModel.g:1042:1: ( '.' )
+            // InternalPlayMorphiaModel.g:1043:2: '.'
             {
              before(grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
             match(input,19,FOLLOW_2); 
@@ -3033,14 +3210,14 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1"
-    // InternalPlayMorphiaModel.g:998:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
+    // InternalPlayMorphiaModel.g:1052:1: rule__QualifiedName__Group_1__1 : rule__QualifiedName__Group_1__1__Impl ;
     public final void rule__QualifiedName__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1002:1: ( rule__QualifiedName__Group_1__1__Impl )
-            // InternalPlayMorphiaModel.g:1003:2: rule__QualifiedName__Group_1__1__Impl
+            // InternalPlayMorphiaModel.g:1056:1: ( rule__QualifiedName__Group_1__1__Impl )
+            // InternalPlayMorphiaModel.g:1057:2: rule__QualifiedName__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualifiedName__Group_1__1__Impl();
@@ -3066,17 +3243,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__QualifiedName__Group_1__1__Impl"
-    // InternalPlayMorphiaModel.g:1009:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
+    // InternalPlayMorphiaModel.g:1063:1: rule__QualifiedName__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__QualifiedName__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1013:1: ( ( RULE_ID ) )
-            // InternalPlayMorphiaModel.g:1014:1: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1067:1: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:1068:1: ( RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:1014:1: ( RULE_ID )
-            // InternalPlayMorphiaModel.g:1015:2: RULE_ID
+            // InternalPlayMorphiaModel.g:1068:1: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1069:2: RULE_ID
             {
              before(grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3103,17 +3280,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Domainmodel__ElementsAssignment"
-    // InternalPlayMorphiaModel.g:1025:1: rule__Domainmodel__ElementsAssignment : ( ruleAbstractElement ) ;
+    // InternalPlayMorphiaModel.g:1079:1: rule__Domainmodel__ElementsAssignment : ( ruleAbstractElement ) ;
     public final void rule__Domainmodel__ElementsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1029:1: ( ( ruleAbstractElement ) )
-            // InternalPlayMorphiaModel.g:1030:2: ( ruleAbstractElement )
+            // InternalPlayMorphiaModel.g:1083:1: ( ( ruleAbstractElement ) )
+            // InternalPlayMorphiaModel.g:1084:2: ( ruleAbstractElement )
             {
-            // InternalPlayMorphiaModel.g:1030:2: ( ruleAbstractElement )
-            // InternalPlayMorphiaModel.g:1031:3: ruleAbstractElement
+            // InternalPlayMorphiaModel.g:1084:2: ( ruleAbstractElement )
+            // InternalPlayMorphiaModel.g:1085:3: ruleAbstractElement
             {
              before(grammarAccess.getDomainmodelAccess().getElementsAbstractElementParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -3144,17 +3321,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PackageDeclaration__NameAssignment_1"
-    // InternalPlayMorphiaModel.g:1040:1: rule__PackageDeclaration__NameAssignment_1 : ( ruleQualifiedName ) ;
+    // InternalPlayMorphiaModel.g:1094:1: rule__PackageDeclaration__NameAssignment_1 : ( ruleQualifiedName ) ;
     public final void rule__PackageDeclaration__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1044:1: ( ( ruleQualifiedName ) )
-            // InternalPlayMorphiaModel.g:1045:2: ( ruleQualifiedName )
+            // InternalPlayMorphiaModel.g:1098:1: ( ( ruleQualifiedName ) )
+            // InternalPlayMorphiaModel.g:1099:2: ( ruleQualifiedName )
             {
-            // InternalPlayMorphiaModel.g:1045:2: ( ruleQualifiedName )
-            // InternalPlayMorphiaModel.g:1046:3: ruleQualifiedName
+            // InternalPlayMorphiaModel.g:1099:2: ( ruleQualifiedName )
+            // InternalPlayMorphiaModel.g:1100:3: ruleQualifiedName
             {
              before(grammarAccess.getPackageDeclarationAccess().getNameQualifiedNameParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3185,17 +3362,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__PackageDeclaration__ElementsAssignment_3"
-    // InternalPlayMorphiaModel.g:1055:1: rule__PackageDeclaration__ElementsAssignment_3 : ( ruleAbstractElement ) ;
+    // InternalPlayMorphiaModel.g:1109:1: rule__PackageDeclaration__ElementsAssignment_3 : ( ruleAbstractElement ) ;
     public final void rule__PackageDeclaration__ElementsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1059:1: ( ( ruleAbstractElement ) )
-            // InternalPlayMorphiaModel.g:1060:2: ( ruleAbstractElement )
+            // InternalPlayMorphiaModel.g:1113:1: ( ( ruleAbstractElement ) )
+            // InternalPlayMorphiaModel.g:1114:2: ( ruleAbstractElement )
             {
-            // InternalPlayMorphiaModel.g:1060:2: ( ruleAbstractElement )
-            // InternalPlayMorphiaModel.g:1061:3: ruleAbstractElement
+            // InternalPlayMorphiaModel.g:1114:2: ( ruleAbstractElement )
+            // InternalPlayMorphiaModel.g:1115:3: ruleAbstractElement
             {
              before(grammarAccess.getPackageDeclarationAccess().getElementsAbstractElementParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -3226,17 +3403,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__MorphiaModel__NameAssignment_1"
-    // InternalPlayMorphiaModel.g:1070:1: rule__MorphiaModel__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalPlayMorphiaModel.g:1124:1: rule__MorphiaModel__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__MorphiaModel__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1074:1: ( ( RULE_ID ) )
-            // InternalPlayMorphiaModel.g:1075:2: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1128:1: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:1129:2: ( RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:1075:2: ( RULE_ID )
-            // InternalPlayMorphiaModel.g:1076:3: RULE_ID
+            // InternalPlayMorphiaModel.g:1129:2: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1130:3: RULE_ID
             {
              before(grammarAccess.getMorphiaModelAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3263,17 +3440,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__MorphiaModel__ImportsAssignment_3"
-    // InternalPlayMorphiaModel.g:1085:1: rule__MorphiaModel__ImportsAssignment_3 : ( ruleImport ) ;
+    // InternalPlayMorphiaModel.g:1139:1: rule__MorphiaModel__ImportsAssignment_3 : ( ruleImport ) ;
     public final void rule__MorphiaModel__ImportsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1089:1: ( ( ruleImport ) )
-            // InternalPlayMorphiaModel.g:1090:2: ( ruleImport )
+            // InternalPlayMorphiaModel.g:1143:1: ( ( ruleImport ) )
+            // InternalPlayMorphiaModel.g:1144:2: ( ruleImport )
             {
-            // InternalPlayMorphiaModel.g:1090:2: ( ruleImport )
-            // InternalPlayMorphiaModel.g:1091:3: ruleImport
+            // InternalPlayMorphiaModel.g:1144:2: ( ruleImport )
+            // InternalPlayMorphiaModel.g:1145:3: ruleImport
             {
              before(grammarAccess.getMorphiaModelAccess().getImportsImportParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -3304,17 +3481,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__MorphiaModel__AttributesAssignment_4"
-    // InternalPlayMorphiaModel.g:1100:1: rule__MorphiaModel__AttributesAssignment_4 : ( ruleAttribute ) ;
+    // InternalPlayMorphiaModel.g:1154:1: rule__MorphiaModel__AttributesAssignment_4 : ( ruleAttribute ) ;
     public final void rule__MorphiaModel__AttributesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1104:1: ( ( ruleAttribute ) )
-            // InternalPlayMorphiaModel.g:1105:2: ( ruleAttribute )
+            // InternalPlayMorphiaModel.g:1158:1: ( ( ruleAttribute ) )
+            // InternalPlayMorphiaModel.g:1159:2: ( ruleAttribute )
             {
-            // InternalPlayMorphiaModel.g:1105:2: ( ruleAttribute )
-            // InternalPlayMorphiaModel.g:1106:3: ruleAttribute
+            // InternalPlayMorphiaModel.g:1159:2: ( ruleAttribute )
+            // InternalPlayMorphiaModel.g:1160:3: ruleAttribute
             {
              before(grammarAccess.getMorphiaModelAccess().getAttributesAttributeParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -3344,30 +3521,30 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
     // $ANTLR end "rule__MorphiaModel__AttributesAssignment_4"
 
 
-    // $ANTLR start "rule__Attribute__ManyAssignment_0"
-    // InternalPlayMorphiaModel.g:1115:1: rule__Attribute__ManyAssignment_0 : ( ( 'many' ) ) ;
-    public final void rule__Attribute__ManyAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Attribute__ManyAssignment_0_0"
+    // InternalPlayMorphiaModel.g:1169:1: rule__Attribute__ManyAssignment_0_0 : ( ( 'many' ) ) ;
+    public final void rule__Attribute__ManyAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1119:1: ( ( ( 'many' ) ) )
-            // InternalPlayMorphiaModel.g:1120:2: ( ( 'many' ) )
+            // InternalPlayMorphiaModel.g:1173:1: ( ( ( 'many' ) ) )
+            // InternalPlayMorphiaModel.g:1174:2: ( ( 'many' ) )
             {
-            // InternalPlayMorphiaModel.g:1120:2: ( ( 'many' ) )
-            // InternalPlayMorphiaModel.g:1121:3: ( 'many' )
+            // InternalPlayMorphiaModel.g:1174:2: ( ( 'many' ) )
+            // InternalPlayMorphiaModel.g:1175:3: ( 'many' )
             {
-             before(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0()); 
-            // InternalPlayMorphiaModel.g:1122:3: ( 'many' )
-            // InternalPlayMorphiaModel.g:1123:4: 'many'
+             before(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0_0()); 
+            // InternalPlayMorphiaModel.g:1176:3: ( 'many' )
+            // InternalPlayMorphiaModel.g:1177:4: 'many'
             {
-             before(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0()); 
+             before(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0_0()); 
             match(input,20,FOLLOW_2); 
-             after(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0()); 
+             after(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0_0()); 
 
             }
 
-             after(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0()); 
+             after(grammarAccess.getAttributeAccess().getManyManyKeyword_0_0_0()); 
 
             }
 
@@ -3386,21 +3563,66 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
         }
         return ;
     }
-    // $ANTLR end "rule__Attribute__ManyAssignment_0"
+    // $ANTLR end "rule__Attribute__ManyAssignment_0_0"
+
+
+    // $ANTLR start "rule__Attribute__EmbeddedAssignment_0_1"
+    // InternalPlayMorphiaModel.g:1188:1: rule__Attribute__EmbeddedAssignment_0_1 : ( ( 'embedded' ) ) ;
+    public final void rule__Attribute__EmbeddedAssignment_0_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalPlayMorphiaModel.g:1192:1: ( ( ( 'embedded' ) ) )
+            // InternalPlayMorphiaModel.g:1193:2: ( ( 'embedded' ) )
+            {
+            // InternalPlayMorphiaModel.g:1193:2: ( ( 'embedded' ) )
+            // InternalPlayMorphiaModel.g:1194:3: ( 'embedded' )
+            {
+             before(grammarAccess.getAttributeAccess().getEmbeddedEmbeddedKeyword_0_1_0()); 
+            // InternalPlayMorphiaModel.g:1195:3: ( 'embedded' )
+            // InternalPlayMorphiaModel.g:1196:4: 'embedded'
+            {
+             before(grammarAccess.getAttributeAccess().getEmbeddedEmbeddedKeyword_0_1_0()); 
+            match(input,21,FOLLOW_2); 
+             after(grammarAccess.getAttributeAccess().getEmbeddedEmbeddedKeyword_0_1_0()); 
+
+            }
+
+             after(grammarAccess.getAttributeAccess().getEmbeddedEmbeddedKeyword_0_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__EmbeddedAssignment_0_1"
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_1"
-    // InternalPlayMorphiaModel.g:1134:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalPlayMorphiaModel.g:1207:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1138:1: ( ( RULE_ID ) )
-            // InternalPlayMorphiaModel.g:1139:2: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1211:1: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:1212:2: ( RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:1139:2: ( RULE_ID )
-            // InternalPlayMorphiaModel.g:1140:3: RULE_ID
+            // InternalPlayMorphiaModel.g:1212:2: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1213:3: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3427,21 +3649,21 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Attribute__TypeAssignment_3"
-    // InternalPlayMorphiaModel.g:1149:1: rule__Attribute__TypeAssignment_3 : ( ( RULE_ID ) ) ;
+    // InternalPlayMorphiaModel.g:1222:1: rule__Attribute__TypeAssignment_3 : ( ( RULE_ID ) ) ;
     public final void rule__Attribute__TypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1153:1: ( ( ( RULE_ID ) ) )
-            // InternalPlayMorphiaModel.g:1154:2: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:1226:1: ( ( ( RULE_ID ) ) )
+            // InternalPlayMorphiaModel.g:1227:2: ( ( RULE_ID ) )
             {
-            // InternalPlayMorphiaModel.g:1154:2: ( ( RULE_ID ) )
-            // InternalPlayMorphiaModel.g:1155:3: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1227:2: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:1228:3: ( RULE_ID )
             {
              before(grammarAccess.getAttributeAccess().getTypeTypeCrossReference_3_0()); 
-            // InternalPlayMorphiaModel.g:1156:3: ( RULE_ID )
-            // InternalPlayMorphiaModel.g:1157:4: RULE_ID
+            // InternalPlayMorphiaModel.g:1229:3: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1230:4: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getTypeTypeIDTerminalRuleCall_3_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3472,17 +3694,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__DataType__NameAssignment_1"
-    // InternalPlayMorphiaModel.g:1168:1: rule__DataType__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalPlayMorphiaModel.g:1241:1: rule__DataType__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DataType__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1172:1: ( ( RULE_ID ) )
-            // InternalPlayMorphiaModel.g:1173:2: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1245:1: ( ( RULE_ID ) )
+            // InternalPlayMorphiaModel.g:1246:2: ( RULE_ID )
             {
-            // InternalPlayMorphiaModel.g:1173:2: ( RULE_ID )
-            // InternalPlayMorphiaModel.g:1174:3: RULE_ID
+            // InternalPlayMorphiaModel.g:1246:2: ( RULE_ID )
+            // InternalPlayMorphiaModel.g:1247:3: RULE_ID
             {
              before(grammarAccess.getDataTypeAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -3509,17 +3731,17 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
 
 
     // $ANTLR start "rule__Import__ImportedNamespaceAssignment_1"
-    // InternalPlayMorphiaModel.g:1183:1: rule__Import__ImportedNamespaceAssignment_1 : ( ruleQualifiedNameWithWildcard ) ;
+    // InternalPlayMorphiaModel.g:1256:1: rule__Import__ImportedNamespaceAssignment_1 : ( ruleQualifiedNameWithWildcard ) ;
     public final void rule__Import__ImportedNamespaceAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalPlayMorphiaModel.g:1187:1: ( ( ruleQualifiedNameWithWildcard ) )
-            // InternalPlayMorphiaModel.g:1188:2: ( ruleQualifiedNameWithWildcard )
+            // InternalPlayMorphiaModel.g:1260:1: ( ( ruleQualifiedNameWithWildcard ) )
+            // InternalPlayMorphiaModel.g:1261:2: ( ruleQualifiedNameWithWildcard )
             {
-            // InternalPlayMorphiaModel.g:1188:2: ( ruleQualifiedNameWithWildcard )
-            // InternalPlayMorphiaModel.g:1189:3: ruleQualifiedNameWithWildcard
+            // InternalPlayMorphiaModel.g:1261:2: ( ruleQualifiedNameWithWildcard )
+            // InternalPlayMorphiaModel.g:1262:3: ruleQualifiedNameWithWildcard
             {
              before(grammarAccess.getImportAccess().getImportedNamespaceQualifiedNameWithWildcardParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -3563,8 +3785,9 @@ public class InternalPlayMorphiaModelParser extends AbstractInternalContentAssis
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000100012L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000100010L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000080002L});
 
 }

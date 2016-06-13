@@ -53,6 +53,16 @@ public class ControllerGenerator {
     _builder.newLine();
     _builder.append("import static play.libs.Json.toJson;");
     _builder.newLine();
+    _builder.append("import org.mongodb.morphia.query.Query;");
+    _builder.newLine();
+    _builder.append("import org.mongodb.morphia.query.UpdateOperations;");
+    _builder.newLine();
+    _builder.append("import core.util.DBWrapper;");
+    _builder.newLine();
+    _builder.newLine();
+    CharSequence _compileForeignDaoImports = this.compileForeignDaoImports(model);
+    _builder.append(_compileForeignDaoImports, "");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("public class ");
     String _name_2 = model.getName();
@@ -136,6 +146,46 @@ public class ControllerGenerator {
           _builder.append("Dao;");
           _builder.newLineIfNotEmpty();
           _builder.newLine();
+        }
+      }
+      _xblockexpression = _builder;
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence compileForeignDaoImports(final MorphiaModel model) {
+    CharSequence _xblockexpression = null;
+    {
+      final HashSet<String> daosToImport = CollectionLiterals.<String>newHashSet();
+      EList<Attribute> _attributes = model.getAttributes();
+      final Function1<Attribute, Boolean> _function = (Attribute it) -> {
+        boolean _and = false;
+        Type _type = it.getType();
+        if (!(_type instanceof MorphiaModel)) {
+          _and = false;
+        } else {
+          boolean _isMany = it.isMany();
+          _and = _isMany;
+        }
+        return Boolean.valueOf(_and);
+      };
+      Iterable<Attribute> _filter = IterableExtensions.<Attribute>filter(_attributes, _function);
+      for (final Attribute attribute : _filter) {
+        Type _type = attribute.getType();
+        String _name = _type.getName();
+        daosToImport.add(_name);
+      }
+      StringConcatenation _builder = new StringConcatenation();
+      {
+        for(final String name : daosToImport) {
+          _builder.append("import genapi.model.");
+          _builder.append(name, "");
+          _builder.append(";");
+          _builder.newLineIfNotEmpty();
+          _builder.append("import genapi.dao.");
+          _builder.append(name, "");
+          _builder.append("Dao;");
+          _builder.newLineIfNotEmpty();
         }
       }
       _xblockexpression = _builder;
@@ -254,15 +304,14 @@ public class ControllerGenerator {
     _builder.append(_firstLower_9, "\t");
     _builder.append(" = formFactory.form(");
     String _name_19 = model.getName();
-    String _firstLower_10 = StringExtensions.toFirstLower(_name_19);
-    _builder.append(_firstLower_10, "\t");
+    _builder.append(_name_19, "\t");
     _builder.append(".class).bindFromRequest().get();");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("if (!");
     String _name_20 = model.getName();
-    String _firstLower_11 = StringExtensions.toFirstLower(_name_20);
-    _builder.append(_firstLower_11, "\t");
+    String _firstLower_10 = StringExtensions.toFirstLower(_name_20);
+    _builder.append(_firstLower_10, "\t");
     _builder.append("Dao.exists(id)) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -273,25 +322,25 @@ public class ControllerGenerator {
     _builder.newLine();
     _builder.append("\t");
     String _name_21 = model.getName();
-    String _firstLower_12 = StringExtensions.toFirstLower(_name_21);
-    _builder.append(_firstLower_12, "\t");
+    String _firstLower_11 = StringExtensions.toFirstLower(_name_21);
+    _builder.append(_firstLower_11, "\t");
     _builder.append(".setId(id);");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     String _name_22 = model.getName();
-    String _firstLower_13 = StringExtensions.toFirstLower(_name_22);
-    _builder.append(_firstLower_13, "\t");
+    String _firstLower_12 = StringExtensions.toFirstLower(_name_22);
+    _builder.append(_firstLower_12, "\t");
     _builder.append("Dao.save(");
     String _name_23 = model.getName();
-    String _firstLower_14 = StringExtensions.toFirstLower(_name_23);
-    _builder.append(_firstLower_14, "\t");
+    String _firstLower_13 = StringExtensions.toFirstLower(_name_23);
+    _builder.append(_firstLower_13, "\t");
     _builder.append(");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("return ok(toJson(");
     String _name_24 = model.getName();
-    String _firstLower_15 = StringExtensions.toFirstLower(_name_24);
-    _builder.append(_firstLower_15, "\t");
+    String _firstLower_14 = StringExtensions.toFirstLower(_name_24);
+    _builder.append(_firstLower_14, "\t");
     _builder.append("));");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
@@ -304,8 +353,8 @@ public class ControllerGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     String _name_26 = model.getName();
-    String _firstLower_16 = StringExtensions.toFirstLower(_name_26);
-    _builder.append(_firstLower_16, "\t");
+    String _firstLower_15 = StringExtensions.toFirstLower(_name_26);
+    _builder.append(_firstLower_15, "\t");
     _builder.append("Dao.deleteById(id);");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -410,7 +459,7 @@ public class ControllerGenerator {
           String _name_8 = model.getName();
           String _firstLower_3 = StringExtensions.toFirstLower(_name_8);
           _builder.append(_firstLower_3, "");
-          _builder.append(", String ");
+          _builder.append("Id, String ");
           String _name_9 = attribute_1.getName();
           _builder.append(_name_9, "");
           _builder.append("Id) {");

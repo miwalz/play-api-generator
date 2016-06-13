@@ -235,13 +235,22 @@ public interface PlayMorphiaModelPackage extends EPackage
   int ATTRIBUTE__MANY = 0;
 
   /**
+   * The feature id for the '<em><b>Embedded</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__EMBEDDED = 1;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__NAME = 1;
+  int ATTRIBUTE__NAME = 2;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -250,7 +259,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE__TYPE = 2;
+  int ATTRIBUTE__TYPE = 3;
 
   /**
    * The number of structural features of the '<em>Attribute</em>' class.
@@ -259,7 +268,7 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 3;
+  int ATTRIBUTE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -433,6 +442,17 @@ public interface PlayMorphiaModelPackage extends EPackage
    * @generated
    */
   EAttribute getAttribute_Many();
+
+  /**
+   * Returns the meta object for the attribute '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#isEmbedded <em>Embedded</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Embedded</em>'.
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#isEmbedded()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Embedded();
 
   /**
    * Returns the meta object for the attribute '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#getName <em>Name</em>}'.
@@ -628,6 +648,14 @@ public interface PlayMorphiaModelPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__MANY = eINSTANCE.getAttribute_Many();
+
+    /**
+     * The meta object literal for the '<em><b>Embedded</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__EMBEDDED = eINSTANCE.getAttribute_Embedded();
 
     /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.

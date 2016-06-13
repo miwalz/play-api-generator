@@ -155,8 +155,11 @@ public class PlayMorphiaModelGrammarAccess extends AbstractGrammarElementFinder 
 	public class AttributeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "de.htwg.mdsd.playgenmodel.PlayMorphiaModel.Attribute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cManyAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cManyManyKeyword_0_0 = (Keyword)cManyAssignment_0.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cManyAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cManyManyKeyword_0_0_0 = (Keyword)cManyAssignment_0_0.eContents().get(0);
+		private final Assignment cEmbeddedAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cEmbeddedEmbeddedKeyword_0_1_0 = (Keyword)cEmbeddedAssignment_0_1.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -165,17 +168,26 @@ public class PlayMorphiaModelGrammarAccess extends AbstractGrammarElementFinder 
 		private final RuleCall cTypeTypeIDTerminalRuleCall_3_0_1 = (RuleCall)cTypeTypeCrossReference_3_0.eContents().get(1);
 		
 		//Attribute:
-		//	many?='many'? name=ID ':' type=[Type];
+		//	(many?='many' embedded?='embedded'?)? name=ID ':' type=[Type];
 		@Override public ParserRule getRule() { return rule; }
 		
-		//many?='many'? name=ID ':' type=[Type]
+		//(many?='many' embedded?='embedded'?)? name=ID ':' type=[Type]
 		public Group getGroup() { return cGroup; }
 		
-		//many?='many'?
-		public Assignment getManyAssignment_0() { return cManyAssignment_0; }
+		//(many?='many' embedded?='embedded'?)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//many?='many'
+		public Assignment getManyAssignment_0_0() { return cManyAssignment_0_0; }
 		
 		//'many'
-		public Keyword getManyManyKeyword_0_0() { return cManyManyKeyword_0_0; }
+		public Keyword getManyManyKeyword_0_0_0() { return cManyManyKeyword_0_0_0; }
+		
+		//embedded?='embedded'?
+		public Assignment getEmbeddedAssignment_0_1() { return cEmbeddedAssignment_0_1; }
+		
+		//'embedded'
+		public Keyword getEmbeddedEmbeddedKeyword_0_1_0() { return cEmbeddedEmbeddedKeyword_0_1_0; }
 		
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -413,7 +425,7 @@ public class PlayMorphiaModelGrammarAccess extends AbstractGrammarElementFinder 
 	}
 	
 	//Attribute:
-	//	many?='many'? name=ID ':' type=[Type];
+	//	(many?='many' embedded?='embedded'?)? name=ID ':' type=[Type];
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}

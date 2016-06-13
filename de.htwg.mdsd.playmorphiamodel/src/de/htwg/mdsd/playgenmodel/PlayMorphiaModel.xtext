@@ -20,7 +20,7 @@ MorphiaModel:
 	'}';
 
 Attribute:
-	(many?='many')? name=ID ':' type=[Type];
+	(many?='many' (embedded?='embedded')?)? name=ID ':' type=[Type];
 
 Type:
 	DataType | MorphiaModel;

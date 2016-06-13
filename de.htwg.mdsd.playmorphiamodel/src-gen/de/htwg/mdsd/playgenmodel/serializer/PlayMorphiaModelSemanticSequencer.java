@@ -65,7 +65,7 @@ public class PlayMorphiaModelSemanticSequencer extends AbstractDelegatingSemanti
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (many?='many'? name=ID type=[Type|ID])
+	 *     ((many?='many' embedded?='embedded'?)? name=ID type=[Type|ID])
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

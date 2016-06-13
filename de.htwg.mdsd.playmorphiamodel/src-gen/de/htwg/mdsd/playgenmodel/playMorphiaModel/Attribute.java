@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#isMany <em>Many</em>}</li>
+ *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#isEmbedded <em>Embedded</em>}</li>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#getName <em>Name</em>}</li>
  *   <li>{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#getType <em>Type</em>}</li>
  * </ul>
@@ -50,6 +51,32 @@ public interface Attribute extends EObject
    * @generated
    */
   void setMany(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Embedded</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Embedded</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Embedded</em>' attribute.
+   * @see #setEmbedded(boolean)
+   * @see de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage#getAttribute_Embedded()
+   * @model
+   * @generated
+   */
+  boolean isEmbedded();
+
+  /**
+   * Sets the value of the '{@link de.htwg.mdsd.playgenmodel.playMorphiaModel.Attribute#isEmbedded <em>Embedded</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Embedded</em>' attribute.
+   * @see #isEmbedded()
+   * @generated
+   */
+  void setEmbedded(boolean value);
 
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

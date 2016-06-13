@@ -14,9 +14,14 @@ class ModelGenerator {
 		
 		import org.mongodb.morphia.annotations.Entity;
 		import core.model.BasicModel;
+		import java.util.ArrayList;
+		import java.util.List;
+		import org.mongodb.morphia.annotations.Embedded;
+		import org.mongodb.morphia.annotations.Reference;
 		
 		@Entity("«model.name.toFirstLower»")
 		public class «model.name» extends BasicModel {
+			
 			«FOR attribute : model.attributes»
 			«attribute.compile»
 			«ENDFOR»
@@ -24,9 +29,13 @@ class ModelGenerator {
 	'''
 
 	def compile(Attribute attribute) '''
-	
 		«IF attribute.type instanceof MorphiaModel»
-		@TODO: Morphia Annotations
+			«IF attribute.embedded»
+			@Embedded
+			«ENDIF»
+			«IF !attribute.embedded»
+			@Reference
+			«ENDIF»
 		«ENDIF»
 		«IF attribute.many»
 		private List<«attribute.type.fullyQualifiedName»> «attribute.name» = new ArrayList<«attribute.type.fullyQualifiedName»>();
@@ -36,7 +45,7 @@ class ModelGenerator {
 		}
 		
 		public void set«attribute.name.toFirstUpper»(List<«attribute.type.fullyQualifiedName»> «attribute.name») {
-			this.«attribute.name» = posts;
+			this.«attribute.name» = «attribute.name»;
 		}
 			
 		«ENDIF»

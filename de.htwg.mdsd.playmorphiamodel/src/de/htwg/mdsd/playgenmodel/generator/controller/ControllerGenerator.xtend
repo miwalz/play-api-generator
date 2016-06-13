@@ -22,6 +22,11 @@ class ControllerGenerator {
 		import play.data.FormFactory;
 		import play.libs.Json;
 		import static play.libs.Json.toJson;
+		import org.mongodb.morphia.query.Query;
+		import org.mongodb.morphia.query.UpdateOperations;
+		import core.util.DBWrapper;
+		
+		«model.compileForeignDaoImports»
 		
 		public class «model.name»Controller extends Controller {
 			
@@ -51,6 +56,19 @@ class ControllerGenerator {
 		'''
 	}
 	
+	def compileForeignDaoImports(MorphiaModel model) {
+		val daosToImport = newHashSet()
+		for(Attribute attribute : model.attributes.filter[it.type instanceof MorphiaModel && it.many]) {
+			daosToImport.add(attribute.type.name)
+		}
+		'''
+		«FOR name : daosToImport»
+		import genapi.model.«name»;
+		import genapi.dao.«name»Dao;
+		«ENDFOR»
+		'''
+	}
+	
 	def compileCrudMethods(MorphiaModel model) '''
 		public Result create«model.name»() {
 			final «model.name» «model.name.toFirstLower» = formFactory.form(«model.name».class).bindFromRequest().get();
@@ -70,7 +88,7 @@ class ControllerGenerator {
 		}
 
 		public Result update«model.name»(String id) {
-			final «model.name» «model.name.toFirstLower» = formFactory.form(«model.name.toFirstLower».class).bindFromRequest().get();
+			final «model.name» «model.name.toFirstLower» = formFactory.form(«model.name».class).bindFromRequest().get();
 			if (!«model.name.toFirstLower»Dao.exists(id)) {
 				return notFound();
 			}
@@ -101,7 +119,7 @@ class ControllerGenerator {
 			return ok(Json.toJson(entityToAdd));
 		}
 		
-		public Result removeFrom«attribute.name.toFirstUpper»(String «model.name.toFirstLower», String «attribute.name»Id) {
+		public Result removeFrom«attribute.name.toFirstUpper»(String «model.name.toFirstLower»Id, String «attribute.name»Id) {
 			final «attribute.type.fullyQualifiedName» entityToRemove = «attribute.type.name.toFirstLower»Dao.get(«attribute.name»Id);
 			final Query<«model.fullyQualifiedName»> query = DBWrapper.datastore.createQuery(«model.fullyQualifiedName».class).filter("_id ==", «model.name.toFirstLower»Id);
 			final UpdateOperations<«model.fullyQualifiedName»> operations = DBWrapper.datastore.createUpdateOperations(«model.fullyQualifiedName».class).removeAll("«attribute.name»", entityToRemove);
