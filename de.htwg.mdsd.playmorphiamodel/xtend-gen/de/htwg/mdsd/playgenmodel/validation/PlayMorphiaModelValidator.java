@@ -3,7 +3,10 @@
  */
 package de.htwg.mdsd.playgenmodel.validation;
 
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel;
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage;
 import de.htwg.mdsd.playgenmodel.validation.AbstractPlayMorphiaModelValidator;
+import org.eclipse.xtext.validation.Check;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +15,18 @@ import de.htwg.mdsd.playgenmodel.validation.AbstractPlayMorphiaModelValidator;
  */
 @SuppressWarnings("all")
 public class PlayMorphiaModelValidator extends AbstractPlayMorphiaModelValidator {
+  public final static String INVALID_NAME = "invalidName";
+  
+  @Check
+  public void checkMorphiaModelStartsWithCapital(final MorphiaModel model) {
+    String _name = model.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("MorphiaModel name should start with a capital", 
+        PlayMorphiaModelPackage.Literals.TYPE__NAME, 
+        PlayMorphiaModelValidator.INVALID_NAME);
+    }
+  }
 }

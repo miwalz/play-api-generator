@@ -3,6 +3,9 @@
  */
 package de.htwg.mdsd.playgenmodel.validation
 
+import org.eclipse.xtext.validation.Check
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.MorphiaModel
+import de.htwg.mdsd.playgenmodel.playMorphiaModel.PlayMorphiaModelPackage
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +14,15 @@ package de.htwg.mdsd.playgenmodel.validation
  */
 class PlayMorphiaModelValidator extends AbstractPlayMorphiaModelValidator {
 	
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					PlayMorphiaModelPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+  public static val INVALID_NAME = 'invalidName'
+
+	@Check
+	def checkMorphiaModelStartsWithCapital(MorphiaModel model) {
+		if (!Character.isUpperCase(model.name.charAt(0))) {
+			warning('MorphiaModel name should start with a capital', 
+					PlayMorphiaModelPackage.Literals.TYPE__NAME,
+					INVALID_NAME)
+		}
+	}
 	
 }
