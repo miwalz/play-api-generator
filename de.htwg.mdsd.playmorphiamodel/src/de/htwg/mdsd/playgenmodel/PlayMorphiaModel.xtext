@@ -2,6 +2,8 @@ grammar de.htwg.mdsd.playgenmodel.PlayMorphiaModel with org.eclipse.xtext.common
 
 generate playMorphiaModel "http://www.htwg.de/mdsd/playgenmodel/PlayMorphiaModel"
 
+import "http://www.eclipse.org/xtext/common/JavaVMTypes" as jvmTypes
+
 Domainmodel:
 	(elements+=AbstractElement)*;
 
@@ -26,7 +28,7 @@ Type:
 	DataType | MorphiaModel;
 
 DataType:
-	'datatype' name=ID;
+	'datatype' name=ID 'mapped-to' javaType=[jvmTypes::JvmType|QualifiedName];
 	
 Import:
     'import' importedNamespace=QualifiedNameWithWildcard;
